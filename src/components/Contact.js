@@ -39,6 +39,7 @@ function Contact() {
         
         <div ref={ref} className={ isVisible ? "form-cont fade-right fade-right-show" : "fade-right"}>
           <form name="contact-form" data-netlify="true" netlify-honeypot="bot-field" method="POST">
+            <input type="hidden" name="form-name" value="contact-form"/>
             <p hidden>
               <label>
               Don't fill this out if you're human: <input name="bot-field"/>
