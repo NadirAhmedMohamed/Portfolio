@@ -10,41 +10,7 @@ function Contact() {
         const [isVisible,setIsVisible] = useState(false);
         const ref = useRef();
 
-        const [showSuccessfullyMsg,setShowSuccessfullyMsg] = useState(false);
-        const [showFailedMsg,setShowFailedMsg] = useState(false);
-        const [submitBtn,setSubmitBtn] = useState("Connect With Me");
-
-        const handleSubmit = (e)=>{
-
-          e.preventDefault();
-
-          setSubmitBtn("Submitting...");
-
-          const form = e.target;
-
-          const data = new FormData(form);
-
-          fetch("/",{
-            method: "POST",
-            headers: {
-              "Content-Type": "application/x-www-form-urlencoded",
-            },
-            body: new URLSearchParams(data).toString()
-          }).then(()=>{
-            setShowSuccessfullyMsg(true);
-            form.reset();
-             setSubmitBtn("Connect With Me");
-            setTimeout(()=>{
-              setShowSuccessfullyMsg(false);
-            },2000)
-          }).catch(()=>{
-            setShowFailedMsg(true);
-             setSubmitBtn("Connect With Me");
-            setTimeout(()=>{
-              setShowFailedMsg(false);
-            },2000)
-          })
-        }
+    
         
         useEffect(()=>{
           const handleScroll = ()=>{
@@ -72,17 +38,37 @@ function Contact() {
         </div>
         
         <div ref={ref} className={ isVisible ? "form-cont fade-right fade-right-show" : "fade-right"}>
-          <form onSubmit={handleSubmit} name="contact-form" data-netlify="true" method="POST">
-              <input type="hidden" name="from-name" value="contact-form"/>
-              <input type="text" name="name" placeholder="your name" required/>
-              <input type="email" name="email" placeholder="your email" required/>
-              <textarea name="message" placeholder="say something ..." required></textarea>
-              <button type="submit">{submitBtn}</button>
+          <form name="contact-form" data-netlify="true" netlify-honeypot="bot-field" method="POST">
+            <p hidden>
+              <label>
+              Don't fill this out if you're human: <input name="bot-field"/>
+              </label>
+            </p>
+              
+              <p>
+                <label>
+                  Your Name: <input type="text" name="name" placeholder="your name" required/>
+                </label>
+              </p>
+
+               <p>
+                <label>
+                  Your Email:  <input type="email" name="email" placeholder="your email" required/>
+                </label>
+              </p>
+
+                <p>
+                <label>
+                  Your Message:  <textarea name="message" placeholder="say something ..." required></textarea>
+                </label>
+              </p>
+              
+              <p>
+                 <button type="submit">{submitBtn}</button>
+              </p> 
           </form> 
        </div>
 
-       {showSuccessfullyMsg ? <SuccessfullyMsg/> : null}
-       {showFailedMsg ? <FailedMsg/> : null}
     </section>
     )
 }
