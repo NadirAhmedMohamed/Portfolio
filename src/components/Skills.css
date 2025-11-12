@@ -1,0 +1,119 @@
+.skills {
+    padding: 20px 40px;
+    margin: 25px 15px; 
+}
+
+.skills .skill-cont {
+   width: 500px;
+   margin: 20px auto;
+   display: flex;
+   flex-wrap: wrap;
+   align-items: center;
+   justify-content: center;
+}
+
+.skills .skill-cont .skill {
+   width: 90px;
+   height: 90px;
+   background: var(--primary-color);
+   border-radius: 50%;
+   margin: 12px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   cursor: pointer;
+   border: 2px solid var(--primary-color);
+   transition: all 0.4s ease;
+   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateX(200px);
+    transition: all 0.4s ease-in-out;
+}
+
+.fade-in-show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.skills .skill-cont .skill:hover {
+  background: #FFFFF0;
+}
+
+.skills .skill-cont .skill:hover .icon {
+ color: var(--primary-color);
+}
+
+.skills .skill-cont .skill .icon {
+    font-size: 30px;
+    color: #FFFFF0;    
+}
+
+/*<============RESPONSIVE DESIGN===========>*/
+@media (max-width: 767px) {
+
+  .skills {
+    padding: 20px 20px;
+}
+
+  .skills .skill-cont {
+   width: 70%;
+}
+
+.skills .skill-cont .skill {
+   width: 60px;
+   height: 60px;
+}
+
+.skills .skill-cont .skill .icon {
+    font-size: 22px;
+    color: #FFFFF0;    
+}
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+
+     .skills {
+    padding: 20px 20px;
+}
+
+    .skills .skill-cont {
+   width: 65%;
+}
+
+.skills .skill-cont .skill {
+   width: 70px;
+   height: 70px;
+}
+
+.skills .skill-cont .skill .icon {
+    font-size: 23px;
+    color: #FFFFF0;    
+}
+
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+
+     .skills {
+    padding: 20px 20px;
+}
+
+      .skills .skill-cont {
+   width: 60%;
+}
+
+.skills .skill-cont .skill {
+   width: 80px;
+   height: 80px;
+}
+
+.skills .skill-cont .skill .icon {
+    font-size: 24px;
+    color: #FFFFF0;    
+}
+
+}
+/*<============RESPONSIVE DESIGN===========>*/

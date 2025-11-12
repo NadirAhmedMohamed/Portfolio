@@ -1,0 +1,235 @@
+.connect {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px;  
+  padding: 20px 40px;
+  margin: 25px 15px; 
+  position: relative; 
+}
+
+.connect .connect-text .start {
+  margin-top: 15px;
+  font-weight: bold;
+  font-size: 18px;
+  color: var(--primary-color);
+  position: relative;
+  font-size: 25px;
+}
+
+.connect .connect-text .start .hi {
+  color: #FFA500;
+  position: relative; 
+}
+
+.connect .connect-text .start .hi::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  background: #FFA500;
+  height: 2px;
+  bottom: -3px;
+  left: 0; 
+}
+
+.connect .form-cont {
+    margin-right:150px;
+}
+
+.connect form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap:15px;
+    flex: 1;
+}
+
+.connect form button {
+    width: fit-content;
+    border: none;
+    background: var(--primary-color);
+    color: #FFFFF0;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: bold;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    cursor: pointer;
+    border: 2px solid var(--primary-color);
+    transition: all 0.4s ease;
+} 
+
+.connect form button:hover {
+   background: #e5e5c2;
+   border: 2px solid var(--primary-color);
+   color: var(--primary-color);
+   font-weight: bold;
+} 
+
+.connect form input ,
+.connect form textarea {
+   padding: 12px;
+   background: #F5F5DC;
+   border-radius: 5px; 
+   outline: none;
+   border: 0.4px solid var(--secondary-color);
+   font-size: 15px;
+   width: 280px;
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+   color: var(--secondary-color);
+} 
+
+.connect form textarea {
+   min-height: 200px;
+   font-size: 17px;
+   width: 300px;
+}
+
+.fade-right {
+    opacity: 0;
+    transform: translateX(200px);
+    transition: all 0.4s ease-in-out;
+}
+
+.fade-right-show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fade-left {
+    opacity: 0;
+    transform: translateX(-200px);
+    transition: all 0.4s ease-in-out;
+}
+
+.fade-left-show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/*<============RESPONSIVE DESIGN===========>*/
+@media (max-width: 767px) {
+
+  .connect {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    padding: 20px 20px;
+    margin: 25px 15px;  
+}
+
+  .connect .connect-text .start {
+    margin-top: 15px;
+    font-size: 18px;
+}
+
+.connect .form-cont {
+     margin: 0;
+}
+
+.connect form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.connect form button {
+    padding: 10px;
+    font-size: 14px;
+} 
+
+.connect form input ,
+.connect form textarea {
+   padding: 12px;
+   font-size: 13px;
+   width: 230px;
+} 
+
+.connect form textarea {
+   min-height: 200px;
+   font-size: 15px;
+   width: 270px;
+}
+
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+
+  .connect {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    padding: 20px 20px;
+    margin: 25px 15px;  
+}
+   
+  .connect .connect-text .start {
+    margin-top: 15px;
+    font-size: 20px;
+}
+
+.connect form button {
+    padding: 10px;
+    font-size: 15px;
+} 
+
+.connect form input ,
+.connect form textarea {
+   padding: 12px;
+   font-size: 14px;
+   width: 230px;
+} 
+
+.connect form textarea {
+   min-height: 200px;
+   font-size: 16px;
+   width: 270px;
+}
+
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+  
+   .connect {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    padding: 20px 20px;
+    margin: 25px 15px;  
+}
+   
+  .connect .connect-text .start {
+    margin-top: 15px;
+    font-size: 22px;
+}
+
+.connect form button {
+    padding: 10px;
+    font-size: 15px;
+} 
+
+.connect form input ,
+.connect form textarea {
+   padding: 12px;
+   font-size: 15px;
+   width: 230px;
+} 
+
+.connect form textarea {
+   min-height: 200px;
+   font-size: 17px;
+   width: 270px;
+}
+
+}
+
+/*<============RESPONSIVE DESIGN===========>*/
+
+
+
+

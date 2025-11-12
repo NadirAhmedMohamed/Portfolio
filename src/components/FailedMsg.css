@@ -1,0 +1,18 @@
+.Failed-msg {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background: #dc3545;
+    color: white;
+    width: 270px;
+    height: 40px;
+    border-radius: 8px;
+    padding: 13px;
+    font-weight: bold;
+    font-size: 17px;
+    margin-top: -28px;
+    position: absolute;
+    bottom: 175px;
+    right: 45px;
+}
+

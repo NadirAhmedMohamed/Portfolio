@@ -1,0 +1,337 @@
+footer {
+   background: var(--primary-color);
+   color: #FFFFF0;
+   padding: 20px 35px;
+}
+
+footer .gmail {
+   margin-bottom: 40px;
+}
+
+footer .gmail .msg {
+   font-size: 30px;
+   margin-bottom: 8px; 
+}
+
+footer .gmail a {
+    font-weight: bold;
+    font-size: 24px;
+    cursor: pointer;
+    color: #e5e5c2;
+    text-decoration: none;
+}
+
+footer .contact {
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   margin-bottom: 9px;
+}
+
+footer .contact .cont {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+footer .contact .cont .icons {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
+footer .contact .cont .icons a {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background: #FFFFF0;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid var(--primary-color);
+  transition: all 0.4s ease;
+}
+
+footer .contact .cont .icons a:hover {
+     background: var(--primary-color);
+     border: 2px solid #FFFFF0;
+}
+
+footer .contact .cont .icons a:hover .icon {
+    color: #FFFFF0;
+}
+
+footer .contact .cont .icons .icon {
+     color: var(--primary-color);
+     font-size: 24px;
+}
+
+footer .contact .cont .copy-right {
+   font-size: 20px;
+}
+
+footer .contact .cont .copy-right .name {
+   font-weight: bold;
+}
+
+footer .contact .sections {
+   font-size: 20px;
+   margin-right: 200px;
+}
+
+footer .me {
+   font-size: 150px; 
+   text-align: right;
+   margin-right: 70px;
+}
+
+footer .arrow {
+  width: 60px;  
+  height: 60px;
+  border-radius: 50%;
+  background: #FFFFF0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--primary-color);
+  font-weight: bold;
+  margin: 20px;
+  cursor: pointer;
+  border: 2px solid var(--primary-color);
+  transition: all 0.4s ease;
+}
+
+footer .arrow .icon {
+    color: var(--primary-color);
+    font-size: 24px;
+}
+
+footer .arrow:hover {
+    background: var(--primary-color);
+    border: 2px solid #FFFFF0;
+}
+
+footer .arrow:hover .icon {
+    color: #FFFFF0;
+}
+
+
+/*<============RESPONSIVE DESIGN===========>*/
+@media (max-width: 767px) {
+   footer {
+   padding: 20px 20px;
+}
+
+footer .gmail {
+   margin-bottom: 40px;
+}
+
+footer .gmail .msg {
+   font-size: 20px;
+   margin-bottom: 8px; 
+}
+
+footer .gmail a {
+    font-size: 18px;
+}
+
+footer .contact {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   margin-bottom: 9px;
+   gap: 60px;
+}
+
+footer .contact .cont {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+footer .contact .cont .icons {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
+footer .contact .cont .icons a {
+  width: 48px;
+  height: 48px;
+}
+
+footer .contact .cont .icons .icon {
+     font-size: 22px;
+}
+
+footer .contact .cont .copy-right {
+   font-size: 17px;
+}
+
+footer .contact .sections {
+ display: none;
+}
+
+footer .me {
+   font-size: 100px; 
+   text-align: right;
+   margin-right: 30px;
+}
+
+footer .arrow {
+  width: 55px;  
+  height: 55px;
+}
+
+footer .arrow .icon {
+    font-size: 20px;
+}
+
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+
+      footer {
+   padding: 20px 20px;
+}
+
+footer .gmail {
+   margin-bottom: 40px;
+}
+
+footer .gmail .msg {
+   font-size: 21px;
+   margin-bottom: 8px; 
+}
+
+footer .gmail a {
+    font-size: 19px;
+}
+
+footer .contact {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   margin-bottom: 9px;
+   gap: 60px;
+}
+
+footer .contact .cont {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+footer .contact .cont .icons {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
+footer .contact .cont .icons a {
+  width: 55px;
+  height: 55px;
+}
+
+footer .contact .cont .icons .icon {
+     font-size: 24px;
+}
+
+footer .contact .cont .copy-right {
+   font-size: 17px;
+}
+
+footer .contact .sections {
+   font-size: 17px;
+   margin-right: 200px;
+}
+
+footer .me {
+   font-size: 140px; 
+   text-align: right;
+   margin-right: 30px;
+}
+
+footer .arrow {
+  width: 60px;  
+  height: 60px;
+}
+
+footer .arrow .icon {
+    font-size: 22px;
+}
+
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+     footer {
+   padding: 20px 20px;
+}
+
+footer .gmail {
+   margin-bottom: 40px;
+}
+
+footer .gmail .msg {
+   font-size: 22px;
+   margin-bottom: 8px; 
+}
+
+footer .gmail a {
+    font-size: 20px;
+}
+
+footer .contact {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   margin-bottom: 9px;
+   gap: 60px;
+}
+
+footer .contact .cont {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+footer .contact .cont .icons a {
+  width: 55px;
+  height: 55px;
+}
+
+footer .contact .cont .icons .icon {
+     font-size: 24px;
+}
+
+footer .contact .cont .copy-right {
+   font-size: 17px;
+}
+
+footer .contact .sections {
+   font-size: 17px;
+   margin-right: 200px;
+}
+
+footer .me {
+   font-size: 145px; 
+   text-align: right;
+   margin-right: 40px;
+}
+
+footer .arrow {
+  width: 60px;  
+  height: 60px;
+}
+
+footer .arrow .icon {
+    font-size: 22px;
+}
+
+}
+/*<============RESPONSIVE DESIGN===========>*/

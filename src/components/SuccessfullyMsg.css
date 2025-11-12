@@ -1,0 +1,16 @@
+.successfully-msg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #28a745;
+    color: white;
+    width: 250px;
+    height: 40px;
+    border-radius: 8px;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 17px;
+    position: absolute;
+    bottom: 175px;
+    right: 45px;
+}

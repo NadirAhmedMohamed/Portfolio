@@ -1,0 +1,128 @@
+.latest-projects {
+    padding: 20px 40px;
+    margin: 25px 15px;
+}
+
+.latest-projects .proj-container {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+}
+
+.latest-projects .proj-container .group-btn {
+   display: flex;
+   gap: 10px;
+}
+
+.latest-projects .proj-container .group-btn .btn {
+   border: 2px solid var(--primary-color);
+   outline: none;
+   background: var(--primary-color);
+   transition: all 0.4s ease;
+   color: #e5e5c2;
+   cursor: pointer;
+   border-radius: 8px;
+   width: 95px;
+   padding: 10px 7px;
+   font-size: 16px;
+   font-weight: bold;
+   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.latest-projects .proj-container .group-btn .btn:hover {
+  background: #e5e5c2;
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+}
+
+.latest-projects .proj-container .group-btn .btn.active {
+   background: #e5e5c2;
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+}
+
+
+.latest-projects .proj-container .proj-cards {
+    margin: 20px 0;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.fade-right {
+    opacity: 0;
+    transform: translateX(200px);
+    transition: all 0.4s ease-in-out;
+}
+
+.fade-right-show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+
+/*<============RESPONSIVE DESIGN===========>*/
+@media (max-width: 767px) {
+
+   .latest-projects {
+    padding: 20px 20px;
+    margin: 25px 15px;
+}
+
+.latest-projects .proj-container {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+}
+
+.latest-projects .proj-container .group-btn {
+   display: flex;
+   gap: 10px;
+}
+
+.latest-projects .proj-container .group-btn .btn {
+   width: 80px;
+   padding: 10px 7px;
+   font-size: 13px;
+}
+
+.latest-projects .proj-container .proj-cards {
+    margin: 20px 0;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+
+   .latest-projects {
+    padding: 20px 20px;
+    margin: 25px 15px;
+}
+
+.latest-projects .proj-container .group-btn .btn {
+   width: 88px;
+   padding: 10px 7px;
+   font-size: 15px;
+}
+
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+     .latest-projects {
+    padding: 20px 20px;
+    margin: 25px 15px;
+}
+
+.latest-projects .proj-container .group-btn button {
+   width: 90px;
+   padding: 8px 5px;
+   font-size: 15px;
+}
+}
+
+/*<============RESPONSIVE DESIGN===========>*/

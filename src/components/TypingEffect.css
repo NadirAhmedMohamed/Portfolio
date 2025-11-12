@@ -1,0 +1,21 @@
+.typing-text {
+  font-size: 40px;
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+.cursor {
+  display: inline-block;
+  margin-left: 2px;
+  animation: Blink 0.7s infinite;
+  color: var(--primary-color);
+}
+
+@keyframes Blink {
+  0% , 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
