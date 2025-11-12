@@ -48,19 +48,19 @@ function Contact() {
               
               <p>
                 <label>
-                  Your Name: <input type="text" name="name" placeholder="your name" required/>
+                  <input type="text" name="name" placeholder="your name" required/>
                 </label>
               </p>
 
                <p>
                 <label>
-                  Your Email:  <input type="email" name="email" placeholder="your email" required/>
+                  <input type="email" name="email" placeholder="your email" required/>
                 </label>
               </p>
 
                 <p>
                 <label>
-                  Your Message:  <textarea name="message" placeholder="say something ..." required></textarea>
+                <textarea name="message" placeholder="say something ..." required></textarea>
                 </label>
               </p>
               
