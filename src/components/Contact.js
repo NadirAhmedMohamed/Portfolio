@@ -65,7 +65,7 @@ function Contact() {
               </p>
               
               <p>
-                 <button type="submit">{submitBtn}</button>
+                 <button type="submit">Connect With Me</button>
               </p> 
           </form> 
        </div>
