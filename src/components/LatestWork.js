@@ -1,10 +1,10 @@
 import React from "react";
 import { useState , useRef , useEffect } from "react";
-import "./LatestWork.css"
+import "./LatestWork.css";
 import ProjectCard from "./ProjectCard";
 import { SiJavascript } from 'react-icons/si';
 import { FaReact } from 'react-icons/fa';
-import "../index"
+import "../index";
 
 const ProjectsData = [
         {

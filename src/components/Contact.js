@@ -1,8 +1,6 @@
 import react from "react";
 import { useState , useRef , useEffect } from "react";
 import "./Contact.css";
-import SuccessfullyMsg from "./SuccessfullyMsg";
-import FailedMsg from "./FailedMsg";
 
 
 function Contact() {
@@ -10,7 +8,6 @@ function Contact() {
         const [isVisible,setIsVisible] = useState(false);
         const ref = useRef();
 
-    
         
         useEffect(()=>{
           const handleScroll = ()=>{
@@ -40,25 +37,14 @@ function Contact() {
         <div ref={ref} className={ isVisible ? "form-cont fade-right fade-right-show" : "fade-right"}>
           <form name="contact-form" data-netlify="true" netlify-honeypot="bot-field" method="POST">
            <input type="hidden" name="form-name" value="contact-form"/>
-              
-              <p>
-                  <input type="text" name="name" placeholder="your name" required/>
-              </p>
-
-               <p> 
-                  <input type="email" name="email" placeholder="your email" required/>
-              </p>
-
-                <p>
+            
+                <input type="text" name="name" placeholder="your name" required/>
+                <input type="email" name="email" placeholder="your email" required/> 
                 <textarea name="message" placeholder="say something ..." required></textarea>
-              </p>
               
-              <p>
                  <button type="submit">Connect With Me</button>
-              </p> 
           </form> 
        </div>
-
     </section>
     )
 }
