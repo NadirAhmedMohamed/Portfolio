@@ -8,7 +8,6 @@ function Contact() {
         const [isVisible,setIsVisible] = useState(false);
         const ref = useRef();
 
-        
         useEffect(()=>{
           const handleScroll = ()=>{
 
@@ -23,7 +22,6 @@ function Contact() {
           window.addEventListener("scroll",handleScroll);
       
           return ()=> window.removeEventListener("scroll",handleScroll);
-      
         },[])
 
 
@@ -42,7 +40,7 @@ function Contact() {
                 <input type="email" name="email" placeholder="your email" required/> 
                 <textarea name="message" placeholder="say something ..." required></textarea>
               
-                 <button type="submit">Connect With Me</button>
+                <button type="submit">Connect With Me</button>
           </form> 
        </div>
     </section>

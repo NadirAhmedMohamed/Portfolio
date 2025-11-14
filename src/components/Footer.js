@@ -21,7 +21,7 @@ function Footer() {
       
      <div className="cont">             
       <div className="icons">
-       <a href="https://www.linkedin.com/in/nadirahmed10?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3Bd3JLKdUcRSONcl2bCFVx7Q%3D%3D" target="_blank"><FaLinkedin className="icon"/></a> 
+       <a href="https://www.linkedin.com/in/nadirahmed10/" target="_blank"><FaLinkedin className="icon"/></a> 
        <a href="mailto:nader.a.j12@gmail.com" target="_blank"><SiGmail className="icon"/></a>
        <a href="https://github.com/NadirAhmedMohamed" target="_blank"><FaGithub className="icon"/></a>
       </div>
