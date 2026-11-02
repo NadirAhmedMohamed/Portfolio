@@ -1,0 +1,69 @@
+/* ========================================
+   GLOBAL SCROLL REVEAL — NADIR.DEV
+======================================== */
+
+.scroll-reveal {
+  opacity: 0;
+  transition:
+    opacity var(--reveal-duration, 700ms) ease,
+    transform var(--reveal-duration, 700ms) cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+
+  will-change: opacity, transform;
+}
+
+/* Directions */
+
+.reveal-up {
+  transform: translate3d(0, 45px, 0);
+}
+
+.reveal-down {
+  transform: translate3d(0, -45px, 0);
+}
+
+.reveal-left {
+  transform: translate3d(-45px, 0, 0);
+}
+
+.reveal-right {
+  transform: translate3d(45px, 0, 0);
+}
+
+.reveal-zoom {
+  transform: scale(0.92);
+}
+
+/* Visible state */
+
+.scroll-reveal.is-revealed {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+  will-change: auto;
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal,
+  .scroll-reveal.is-revealed {
+    opacity: 1;
+    transform: none;
+    transition: none;
+    will-change: auto;
+  }
+}
+
+/* Mobile optimization */
+
+@media (max-width: 767px) {
+  .reveal-up,
+  .reveal-down {
+    transform: translate3d(0, 25px, 0);
+  }
+
+  .reveal-left,
+  .reveal-right {
+    transform: translate3d(0, 25px, 0);
+  }
+}

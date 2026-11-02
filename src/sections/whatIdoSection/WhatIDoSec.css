@@ -1,0 +1,797 @@
+/* ========================================
+   WHAT I DO SECTION
+   NADIR.DEV
+======================================== */
+
+.what-do-sec,
+.what-do-sec * {
+  box-sizing: border-box;
+}
+
+.what-do-sec {
+  --what-beige: #f5f5dc;
+  --what-beige-dark: #e5e5c2;
+  --what-gold: #ffc324;
+  --what-orange: #ffa500;
+  --what-text: var(--secondary-color, #333333);
+  --what-primary: var(--primary-color, #ffa500);
+
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  padding: 75px 40px;
+  margin: 25px 0;
+  color: var(--what-text);
+}
+
+.what-do-sec .what-do-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  align-items: center;
+  gap: clamp(35px, 6vw, 85px);
+
+  width: 100%;
+  max-width: 1240px;
+  min-width: 0;
+  margin: 0 auto;
+}
+
+/* ========================================
+   INTRODUCTION
+======================================== */
+
+.what-do-sec .what-info {
+  min-width: 0;
+  max-width: 100%;
+  padding: 10px 0;
+}
+
+.what-do-sec .what-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  margin-bottom: 16px;
+
+  color: var(--what-primary);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.what-do-sec .what-eyebrow::before {
+  content: "";
+  width: 28px;
+  height: 3px;
+  flex-shrink: 0;
+
+  border-radius: 10px;
+  background: var(--what-orange);
+}
+
+.what-do-sec .what-title {
+  margin: 0 0 22px;
+
+  color: var(--what-text);
+  font-size: clamp(32px, 4vw, 48px);
+  line-height: 1.3;
+  font-weight: 800;
+  letter-spacing: -1px;
+
+  overflow-wrap: anywhere;
+}
+
+.what-do-sec .what-title span {
+  color: var(--what-primary);
+}
+
+.what-do-sec .what-description {
+  max-width: 510px;
+  margin: 0;
+
+  color: var(--what-text);
+  opacity: 0.82;
+
+  font-size: 16px;
+  line-height: 1.95;
+
+  overflow-wrap: anywhere;
+}
+
+.what-do-sec .what-bottom-note {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  margin-top: 28px;
+
+  color: var(--what-text);
+  opacity: 0.85;
+
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.what-do-sec .what-note-line {
+  display: inline-block;
+  width: 35px;
+  height: 2px;
+  flex-shrink: 0;
+
+  border-radius: 10px;
+  background: var(--what-orange);
+}
+
+/* ========================================
+   PROJECT LIST
+======================================== */
+
+.what-do-sec .proj-cont {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 18px;
+
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+/* ========================================
+   PROJECT CARDS
+======================================== */
+
+.what-do-sec .what-project-card {
+  position: relative;
+  isolation: isolate;
+
+  display: grid;
+  grid-template-columns: 68px minmax(0, 1fr) 32px;
+  align-items: center;
+  column-gap: 20px;
+
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 142px;
+  height: auto;
+
+  padding: 34px 22px 22px;
+
+  overflow: hidden;
+  overflow-wrap: anywhere;
+
+  border: 1px solid rgba(100, 100, 100, 0.12);
+  border-radius: 18px;
+
+  background: var(--what-beige);
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.055);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease,
+    background-color 0.3s ease;
+}
+
+.what-do-sec .what-project-card:nth-child(2) {
+  background: var(--what-beige-dark);
+  box-shadow: none;
+}
+
+.what-do-sec .what-project-card:nth-child(3) {
+  background: var(--what-beige);
+}
+
+.what-do-sec .what-project-card:hover {
+  transform: translateY(-4px);
+
+  border-color: rgba(255, 165, 0, 0.4);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.09);
+}
+
+/* Card number */
+
+.what-do-sec .what-card-number {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  z-index: 1;
+
+  color: rgba(51, 51, 51, 0.45);
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: 1px;
+
+  pointer-events: none;
+}
+
+/* ========================================
+   ICON
+======================================== */
+
+.what-do-sec .what-card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  grid-column: 1;
+  grid-row: 1;
+
+  width: 68px;
+  height: 68px;
+  min-width: 0;
+  flex: none;
+
+  border-radius: 50%;
+  background: var(--what-primary);
+
+  box-shadow: 0 7px 16px rgba(0, 0, 0, 0.12);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.what-do-sec .what-project-card:nth-child(2) .what-card-icon {
+  background: var(--what-gold);
+}
+
+.what-do-sec .what-project-card:nth-child(3) .what-card-icon {
+  background: var(--what-orange);
+}
+
+.what-do-sec .what-project-card:hover .what-card-icon {
+  transform: scale(1.06) rotate(-4deg);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.15);
+}
+
+.what-do-sec .what-tech-icon {
+  color: #fffff0;
+  font-size: 29px;
+  max-width: 100%;
+}
+
+/* ========================================
+   CARD CONTENT
+======================================== */
+
+.what-do-sec .what-card-info {
+  grid-column: 2;
+  grid-row: 1;
+
+  width: 100%;
+  min-width: 0;
+  padding: 0;
+}
+
+.what-do-sec .what-card-title {
+  margin: 0 0 8px;
+  max-width: 100%;
+
+  color: var(--what-primary);
+  font-size: clamp(18px, 1.8vw, 23px);
+  font-weight: 800;
+  line-height: 1.4;
+
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+
+.what-do-sec .what-card-description {
+  margin: 0 0 12px;
+  max-width: 100%;
+
+  color: var(--what-text);
+  opacity: 0.82;
+
+  font-size: 13px;
+  line-height: 1.7;
+
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+
+.what-do-sec .what-card-count {
+  display: inline-block;
+  max-width: 100%;
+
+  padding: 5px 11px;
+  border-radius: 20px;
+
+  background: rgba(255, 255, 255, 0.65);
+  color: var(--what-text);
+
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.6;
+
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+/* ========================================
+   CARD ARROW
+======================================== */
+
+.what-do-sec .what-card-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  grid-column: 3;
+  grid-row: 1;
+
+  min-width: 0;
+  width: 32px;
+  height: 32px;
+
+  border-radius: 50%;
+  color: var(--what-text);
+  background: rgba(255, 255, 255, 0.55);
+
+  font-size: 12px;
+
+  transition:
+    transform 0.3s ease,
+    background-color 0.3s ease;
+}
+
+.what-do-sec .what-project-card:hover .what-card-arrow {
+  transform: translateX(3px);
+  background: rgba(255, 255, 255, 0.9);
+}
+
+/* ========================================
+   TABLETS
+======================================== */
+
+@media (max-width: 1024px) {
+  .what-do-sec {
+    padding: 60px 28px;
+  }
+
+  .what-do-sec .what-do-inner {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 35px;
+    max-width: 720px;
+  }
+
+  .what-do-sec .what-info {
+    width: 100%;
+  }
+
+  .what-do-sec .what-description {
+    max-width: 650px;
+  }
+
+  .what-do-sec .proj-cont {
+    max-width: 100%;
+  }
+
+  .what-do-sec .what-project-card {
+    grid-template-columns: 62px minmax(0, 1fr) 30px;
+    column-gap: 17px;
+    min-height: 132px;
+    padding: 32px 20px 20px;
+  }
+
+  .what-do-sec .what-card-icon {
+    width: 62px;
+    height: 62px;
+  }
+}
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 600px) {
+  .what-do-sec {
+    padding: 45px 18px;
+    margin: 15px 0;
+  }
+
+  .what-do-sec .what-do-inner {
+    gap: 25px;
+  }
+
+  .what-do-sec .what-eyebrow {
+    margin-bottom: 12px;
+    font-size: 11px;
+  }
+
+  .what-do-sec .what-title {
+    margin-bottom: 16px;
+    font-size: clamp(29px, 8vw, 38px);
+  }
+
+  .what-do-sec .what-description {
+    font-size: 14px;
+    line-height: 1.85;
+  }
+
+  .what-do-sec .what-bottom-note {
+    margin-top: 20px;
+    font-size: 12px;
+  }
+
+  .what-do-sec .proj-cont {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 18px;
+
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .what-do-sec .what-project-card {
+    display: grid;
+    grid-template-columns: 48px minmax(0, 1fr) 26px;
+    align-items: start;
+    column-gap: 12px;
+
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    min-height: 0;
+    height: auto;
+
+    padding: 34px 13px 20px;
+    margin: 0;
+
+    overflow: hidden;
+    overflow-wrap: anywhere;
+    border-radius: 14px;
+  }
+
+  .what-do-sec .what-card-icon {
+    grid-column: 1;
+    grid-row: 1;
+
+    width: 48px;
+    height: 48px;
+    min-width: 0;
+    margin: 0;
+  }
+
+  .what-do-sec .what-tech-icon {
+    font-size: 21px;
+  }
+
+  .what-do-sec .what-card-info {
+    grid-column: 2;
+    grid-row: 1;
+
+    width: 100%;
+    min-width: 0;
+    padding: 0;
+  }
+
+  .what-do-sec .what-card-title {
+    max-width: 100%;
+    margin-bottom: 8px;
+
+    font-size: 16px;
+    line-height: 1.5;
+
+    overflow-wrap: anywhere;
+  }
+
+  .what-do-sec .what-card-description {
+    max-width: 100%;
+    margin-bottom: 12px;
+
+    font-size: 12px;
+    line-height: 1.8;
+
+    overflow-wrap: anywhere;
+  }
+
+  .what-do-sec .what-card-count {
+    max-width: 100%;
+    padding: 4px 9px;
+
+    font-size: 11px;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  .what-do-sec .what-card-arrow {
+    grid-column: 3;
+    grid-row: 1;
+
+    width: 26px;
+    height: 26px;
+    margin-top: 2px;
+
+    font-size: 10px;
+  }
+
+  .what-do-sec .what-card-number {
+    top: 9px;
+    right: 12px;
+    font-size: 9px;
+  }
+}
+
+/* ========================================
+   VERY SMALL PHONES
+======================================== */
+
+@media (max-width: 360px) {
+  .what-do-sec {
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+
+  .what-do-sec .what-project-card {
+    grid-template-columns: 40px minmax(0, 1fr);
+    column-gap: 10px;
+
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+
+  .what-do-sec .what-card-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .what-do-sec .what-tech-icon {
+    font-size: 18px;
+  }
+
+  .what-do-sec .what-card-title {
+    font-size: 14px;
+  }
+
+  .what-do-sec .what-card-arrow {
+    display: none;
+  }
+}
+
+/* ========================================
+   ARABIC / RTL
+======================================== */
+
+.what-do-sec.what-do-arabic {
+  direction: rtl;
+  text-align: right;
+  font-family: "Cairo", "Inter", sans-serif;
+}
+
+.what-do-sec.what-do-arabic .what-info {
+  text-align: right;
+}
+
+.what-do-sec.what-do-arabic .what-eyebrow {
+  letter-spacing: 0;
+}
+
+.what-do-sec.what-do-arabic .what-title {
+  letter-spacing: 0;
+  line-height: 1.6;
+}
+
+.what-do-sec.what-do-arabic .what-description {
+  line-height: 2;
+}
+
+.what-do-sec.what-do-arabic .what-card-number {
+  right: auto;
+  left: 14px;
+}
+
+.what-do-sec.what-do-arabic .what-project-card {
+  direction: rtl;
+  grid-template-columns: 32px minmax(0, 1fr) 68px;
+}
+
+.what-do-sec.what-do-arabic .what-card-icon {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+.what-do-sec.what-do-arabic .what-card-info {
+  grid-column: 2;
+  grid-row: 1;
+  padding: 0;
+  text-align: right;
+}
+
+.what-do-sec.what-do-arabic .what-card-title {
+  line-height: 1.7;
+}
+
+.what-do-sec.what-do-arabic .what-card-description {
+  line-height: 1.9;
+}
+
+.what-do-sec.what-do-arabic .what-card-arrow {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.what-do-sec.what-do-arabic .what-card-arrow svg {
+  transform: rotate(180deg);
+}
+
+@media (max-width: 600px) {
+  .what-do-sec.what-do-arabic .what-title {
+    line-height: 1.65;
+  }
+
+  .what-do-sec.what-do-arabic .what-project-card {
+    grid-template-columns: 26px minmax(0, 1fr) 48px;
+    column-gap: 12px;
+
+    padding-right: 13px;
+    padding-left: 13px;
+  }
+
+  .what-do-sec.what-do-arabic .what-card-icon {
+    grid-column: 3;
+    grid-row: 1;
+  }
+
+  .what-do-sec.what-do-arabic .what-card-info {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .what-do-sec.what-do-arabic .what-card-arrow {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .what-do-sec.what-do-arabic .what-card-number {
+    right: auto;
+    left: 12px;
+  }
+}
+
+@media (max-width: 360px) {
+  .what-do-sec.what-do-arabic .what-project-card {
+    grid-template-columns: minmax(0, 1fr) 40px;
+    column-gap: 10px;
+  }
+
+  .what-do-sec.what-do-arabic .what-card-icon {
+    grid-column: 2;
+  }
+
+  .what-do-sec.what-do-arabic .what-card-info {
+    grid-column: 1;
+  }
+
+  .what-do-sec.what-do-arabic .what-card-arrow {
+    display: none;
+  }
+}
+
+/* ========================================
+   DARK MODE
+======================================== */
+
+[data-theme="dark"] .what-do-sec,
+.dark-mode .what-do-sec,
+body.dark .what-do-sec {
+  --what-primary: var(--primary-color, #ffa500);
+  --what-text: var(--text-color, #e8edf5);
+}
+
+[data-theme="dark"] .what-do-sec .what-project-card,
+.dark-mode .what-do-sec .what-project-card,
+body.dark .what-do-sec .what-project-card {
+  background: var(--surface-color, #20242c);
+  border-color: var(--border-color, #363b45);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16);
+}
+
+[data-theme="dark"] .what-do-sec .what-project-card:nth-child(2),
+.dark-mode .what-do-sec .what-project-card:nth-child(2),
+body.dark .what-do-sec .what-project-card:nth-child(2) {
+  background: var(--surface-color, #20242c);
+}
+
+[data-theme="dark"] .what-do-sec .what-card-title,
+.dark-mode .what-do-sec .what-card-title,
+body.dark .what-do-sec .what-card-title {
+  color: var(--what-primary);
+}
+
+[data-theme="dark"] .what-do-sec .what-description,
+[data-theme="dark"] .what-do-sec .what-card-description,
+.dark-mode .what-do-sec .what-description,
+.dark-mode .what-do-sec .what-card-description,
+body.dark .what-do-sec .what-description,
+body.dark .what-do-sec .what-card-description {
+  color: var(--what-text);
+  opacity: 0.88;
+}
+
+[data-theme="dark"] .what-do-sec .what-card-count,
+.dark-mode .what-do-sec .what-card-count,
+body.dark .what-do-sec .what-card-count {
+  color: var(--what-text);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="dark"] .what-do-sec .what-card-number,
+.dark-mode .what-do-sec .what-card-number,
+body.dark .what-do-sec .what-card-number {
+  color: var(--what-text);
+  opacity: 0.55;
+}
+
+[data-theme="dark"] .what-do-sec .what-card-arrow,
+.dark-mode .what-do-sec .what-card-arrow,
+body.dark .what-do-sec .what-card-arrow {
+  color: var(--what-text);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="dark"] .what-do-sec .what-project-card:hover,
+.dark-mode .what-do-sec .what-project-card:hover,
+body.dark .what-do-sec .what-project-card:hover {
+  border-color: var(--what-primary);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.28);
+}
+
+/* ========================================
+   REDUCED MOTION ACCESSIBILITY
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .what-do-sec *,
+  .what-do-sec *::before,
+  .what-do-sec *::after {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+  }
+}
+
+/* ========================================
+   MOBILE — EQUAL SPACING ON ALL CARDS
+======================================== */
+
+@media screen and (max-width: 600px) {
+  .what-do-sec .proj-cont {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    justify-content: flex-start !important;
+
+    gap: 20px !important;
+    row-gap: 20px !important;
+
+    height: auto !important;
+    min-height: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  .what-do-sec .proj-cont > * {
+    flex: 0 0 auto !important;
+    align-self: stretch !important;
+
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    height: auto !important;
+    min-height: 0 !important;
+
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  .what-do-sec .proj-cont > * > .what-project-card {
+    width: 100%;
+    min-width: 0;
+  }
+}

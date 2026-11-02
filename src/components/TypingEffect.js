@@ -1,47 +1,87 @@
-import React from 'react'
-import { useState , useEffect } from 'react';
+import React, { useEffect, useState } from "react";
 
- function TypingEffect() {
+const roles = {
+  en: [
+    "FRONT-END DEVELOPER",
+    "REACT.JS DEVELOPER",
+    "UI/UX ENTHUSIAST",
+    "WEB DEVELOPER",
+  ],
+  ar: [
+    "مطور واجهات أمامية",
+    "مطور React",
+    "مهتم بتجربة المستخدم",
+    "مطور مواقع ويب",
+  ],
+};
 
-    const text = "Hey There, I'm Nadir";
-    const [index,setIndex] = useState(0);
-    const [displayedText,setDisplayedText] = useState("");
-  
-    useEffect(()=>{
+function TypingEffect() {
+  const [language, setLanguage] = useState(() => {
+    return localStorage.getItem("portfolio-language") === "ar" ? "ar" : "en";
+  });
 
-      const typingSpeed = 100;
-      const delayAfterComplete = 1000;
-     
-      if( index < text.length ) {
-      const timeout = setTimeout(()=>{
-          setDisplayedText((prev)=> prev + text[index]);
-          setIndex(index + 1);
-        },typingSpeed); 
+  const [roleIndex, setRoleIndex] = useState(0);
+  const [displayedText, setDisplayedText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
 
-        return ()=>{
-        clearTimeout(timeout);
+  useEffect(() => {
+    const handleLanguageChange = (event) => {
+      const nextLanguage = event.detail;
+
+      if (nextLanguage === "ar" || nextLanguage === "en") {
+        setLanguage(nextLanguage);
+        setRoleIndex(0);
+        setDisplayedText("");
+        setIsDeleting(false);
       }
-    }else {
-         const resettimeout = setTimeout(()=>{
-          setDisplayedText("");
-          setIndex(0);
-          },delayAfterComplete); 
+    };
 
-          return ()=>{
-        clearTimeout(resettimeout);
-      }
+    window.addEventListener("portfolio-language-change", handleLanguageChange);
+
+    return () => {
+      window.removeEventListener(
+        "portfolio-language-change",
+        handleLanguageChange,
+      );
+    };
+  }, []);
+
+  useEffect(() => {
+    const currentRole = roles[language][roleIndex % roles[language].length];
+    let timeout;
+
+    if (!isDeleting && displayedText.length < currentRole.length) {
+      timeout = setTimeout(() => {
+        setDisplayedText(currentRole.slice(0, displayedText.length + 1));
+      }, 90);
+    } else if (!isDeleting && displayedText.length === currentRole.length) {
+      timeout = setTimeout(() => {
+        setIsDeleting(true);
+      }, 1400);
+    } else if (isDeleting && displayedText.length > 0) {
+      timeout = setTimeout(() => {
+        setDisplayedText(currentRole.slice(0, displayedText.length - 1));
+      }, 40);
+    } else {
+      setIsDeleting(false);
+      setRoleIndex((prev) => (prev + 1) % roles[language].length);
     }
 
-    },[index])
+    return () => clearTimeout(timeout);
+  }, [displayedText, isDeleting, roleIndex, language]);
 
   return (
-    <>
-    <div className='typing-text'>
+    <span
+      className="typing-text"
+      dir={language === "ar" ? "rtl" : "ltr"}
+      aria-label={roles[language][roleIndex % roles[language].length]}
+    >
       {displayedText}
-          <span className='cursor'>|</span>
-    </div>
-    </>
-  )
+      <span className="cursor" aria-hidden="true">
+        |
+      </span>
+    </span>
+  );
 }
 
 export default TypingEffect;
