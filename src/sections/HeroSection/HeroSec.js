@@ -214,6 +214,11 @@ function HeroSec() {
                 src={PersonalPhoto}
                 alt={t.imageAlt}
                 className="hero-profile-image"
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
+                width="600"
+                height="600"
               />
 
               <div className="hero-image-overlay" />

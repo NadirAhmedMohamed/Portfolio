@@ -433,6 +433,10 @@ function ProjectDetails() {
                 src={project.image}
                 alt={`${title} preview`}
                 loading="eager"
+                fetchPriority="high"
+                decoding="async"
+                width="1200"
+                height="750"
               />
             </div>
           ) : (

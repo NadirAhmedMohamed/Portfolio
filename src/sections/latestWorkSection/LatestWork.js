@@ -178,7 +178,7 @@ function LatestWork() {
               <ScrollReveal
                 key={project.slug || project.id || index}
                 direction="up"
-                delay={index * 120}
+                delay={index < 2 ? 0 : 80}
                 duration={750}
               >
                 <ProjectCard
