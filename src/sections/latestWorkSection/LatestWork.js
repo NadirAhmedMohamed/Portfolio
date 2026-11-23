@@ -9,6 +9,24 @@ import ScrollReveal from "../../components/ScrollReveal/ScrollReveal";
 
 import { projectsData, projectCategories } from "../../data/projects";
 
+const safeProjects = Array.isArray(projectsData)
+  ? projectsData.filter((project) => project && typeof project === "object")
+  : [];
+
+const availableCategories = Array.isArray(projectCategories)
+  ? projectCategories.filter(
+      (category) => typeof category === "string" && category !== "All",
+    )
+  : [];
+
+const safeCategories = [
+  "All",
+  ...new Set([
+    ...availableCategories,
+    ...safeProjects.map((project) => project.category).filter(Boolean),
+  ]),
+];
+
 const translations = {
   en: {
     eyebrow: "PORTFOLIO / SELECTED WORK",
@@ -24,6 +42,7 @@ const translations = {
     empty: "No projects found in this category.",
     footer: "Every project is an opportunity to learn, build, and improve.",
     explore: "Explore a project",
+    shown: "projects shown",
   },
   ar: {
     eyebrow: "معرض الأعمال / مشاريع مختارة",
@@ -39,6 +58,7 @@ const translations = {
     empty: "لا توجد مشاريع في هذا التصنيف.",
     footer: "كل مشروع فرصة للتعلم والبناء والتطور.",
     explore: "استكشف المشروع",
+    shown: "مشاريع معروضة",
   },
 };
 
@@ -50,12 +70,6 @@ function LatestWork() {
 
     return document.documentElement.lang?.startsWith("ar") ? "ar" : "en";
   });
-
-  const safeProjects = Array.isArray(projectsData) ? projectsData : [];
-
-  const safeCategories = Array.isArray(projectCategories)
-    ? projectCategories
-    : ["All", ...new Set(safeProjects.map((project) => project.category))];
 
   const t = translations[language];
 
@@ -79,13 +93,20 @@ function LatestWork() {
     return () => observer.disconnect();
   }, []);
 
+  // Reset the filter if its category is no longer available.
+  useEffect(() => {
+    if (!safeCategories.includes(selectedCategory)) {
+      setSelectedCategory("All");
+    }
+  }, [selectedCategory]);
+
   const filteredProjects = useMemo(() => {
     if (selectedCategory === "All") return safeProjects;
 
     return safeProjects.filter(
       (project) => project.category === selectedCategory,
     );
-  }, [selectedCategory, safeProjects]);
+  }, [selectedCategory]);
 
   const getCategoryLabel = (category) => {
     if (category === "All") return t.all;
@@ -93,6 +114,10 @@ function LatestWork() {
 
     return category;
   };
+
+  const firstProjectSlug = filteredProjects.find(
+    (project) => typeof project.slug === "string" && project.slug.trim(),
+  )?.slug;
 
   return (
     <section
@@ -126,9 +151,7 @@ function LatestWork() {
 
               <div
                 className="latest-projects__count"
-                aria-label={`${filteredProjects.length} ${
-                  language === "ar" ? "مشاريع معروضة" : "projects shown"
-                }`}
+                aria-label={`${filteredProjects.length} ${t.shown}`}
               >
                 <span>{String(filteredProjects.length).padStart(2, "0")}</span>
 
@@ -202,13 +225,15 @@ function LatestWork() {
           <footer className="latest-projects__footer">
             <p>{t.footer}</p>
 
-            <Link
-              to={`/projects/${filteredProjects[0]?.slug || "todo-app"}`}
-              className="latest-projects__explore-link"
-            >
-              {t.explore}
-              <FiArrowUpRight aria-hidden="true" />
-            </Link>
+            {firstProjectSlug && (
+              <Link
+                to={`/projects/${firstProjectSlug}`}
+                className="latest-projects__explore-link"
+              >
+                {t.explore}
+                <FiArrowUpRight aria-hidden="true" />
+              </Link>
+            )}
           </footer>
         </ScrollReveal>
       </div>

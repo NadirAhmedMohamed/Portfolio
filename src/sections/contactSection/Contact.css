@@ -1,11 +1,16 @@
 /* ========================================
    CONTACT SECTION - NADIR.DEV
+   Professional Contact Design
    ScrollReveal Compatible
+   Dark / Light / RTL / LTR
+   Fully Responsive
 ======================================== */
 
 .contact-section {
   position: relative;
+  isolation: isolate;
   width: 100%;
+  min-width: 0;
   padding: 110px 7% 120px;
   overflow: hidden;
   background: var(--bg-color);
@@ -30,8 +35,11 @@
   gap: 90px;
   width: 100%;
   max-width: 1250px;
+  min-width: 0;
   margin: 0 auto;
 }
+
+/* ScrollReveal wrappers */
 
 .contact-container > .scroll-reveal {
   width: 100%;
@@ -48,7 +56,9 @@
 ======================================== */
 
 .contact-intro {
+  width: 100%;
   max-width: 570px;
+  min-width: 0;
 }
 
 .contact-eyebrow {
@@ -84,6 +94,8 @@
   font-weight: 800;
   line-height: 1.2;
   letter-spacing: -2px;
+  overflow-wrap: anywhere;
+  text-wrap: balance;
 }
 
 .contact-ar .contact-title {
@@ -97,6 +109,7 @@
   color: var(--text-secondary);
   font-size: 16px;
   line-height: 1.9;
+  overflow-wrap: anywhere;
 }
 
 .contact-ar .contact-description {
@@ -109,6 +122,7 @@
   color: var(--text-color);
   font-size: 23px;
   font-weight: 700;
+  overflow-wrap: anywhere;
 }
 
 .contact-ar .contact-start {
@@ -126,6 +140,7 @@
   inset-inline-start: 0;
   width: 100%;
   height: 2px;
+  border-radius: 5px;
   background: var(--primary-color);
   content: "";
 }
@@ -169,6 +184,7 @@
 
 .contact-form-card {
   width: 100%;
+  min-width: 0;
   padding: 38px;
   border: 1px solid var(--border-color);
   border-radius: 18px;
@@ -181,11 +197,6 @@
     box-shadow 0.3s ease;
 }
 
-.contact-form-card:hover {
-  border-color: var(--border-hover);
-  transform: translateY(-4px);
-}
-
 .contact-form-heading {
   display: flex;
   align-items: center;
@@ -196,6 +207,7 @@
 }
 
 .contact-form-number {
+  flex-shrink: 0;
   color: var(--primary-color);
   font-size: 12px;
   font-weight: 800;
@@ -207,6 +219,7 @@
   color: var(--text-color);
   font-size: 21px;
   font-weight: 700;
+  overflow-wrap: anywhere;
 }
 
 .contact-ar .contact-form-heading h3 {
@@ -214,19 +227,21 @@
 }
 
 /* ========================================
-   FORM FIELDS
+   FORM LAYOUT
 ======================================== */
 
 .contact-form-card form {
   display: flex;
   flex-direction: column;
   gap: 22px;
+  min-width: 0;
 }
 
 .contact-field {
   display: flex;
   flex-direction: column;
   gap: 9px;
+  min-width: 0;
 }
 
 .contact-field label {
@@ -238,11 +253,12 @@
 .contact-field input,
 .contact-field textarea {
   width: 100%;
+  min-width: 0;
   padding: 15px 16px;
   border: 1px solid var(--border-color);
   border-radius: 8px;
   outline: none;
-  background: var(--bg-secondary);
+  background: var(--bg-secondary, var(--surface-color, #141418));
   color: var(--text-color);
   font-family: inherit;
   font-size: 14px;
@@ -272,7 +288,12 @@
 .contact-field input:focus,
 .contact-field textarea:focus {
   border-color: var(--primary-color);
-  box-shadow: 0 0 0 3px var(--primary-glow);
+  box-shadow: 0 0 0 3px var(--primary-glow, rgba(59, 130, 246, 0.18));
+}
+
+.contact-field input:focus-visible,
+.contact-field textarea:focus-visible {
+  outline: none;
 }
 
 /* ========================================
@@ -303,23 +324,24 @@
     box-shadow 0.3s ease;
 }
 
-.contact-submit:hover {
+.contact-submit:hover:not(:disabled) {
   transform: translateY(-2px);
   background: var(--primary-hover);
-  box-shadow: 0 8px 22px var(--shadow-primary);
+  box-shadow: 0 8px 22px var(--shadow-primary, rgba(59, 130, 246, 0.2));
 }
 
 .contact-submit-arrow {
+  flex-shrink: 0;
   font-size: 20px;
   line-height: 1;
   transition: transform 0.3s ease;
 }
 
-.contact-submit:hover .contact-submit-arrow {
+.contact-submit:hover:not(:disabled) .contact-submit-arrow {
   transform: translateX(4px);
 }
 
-.contact-ar .contact-submit:hover .contact-submit-arrow {
+.contact-ar .contact-submit:hover:not(:disabled) .contact-submit-arrow {
   transform: translateX(-4px);
 }
 
@@ -370,7 +392,23 @@
 }
 
 /* ========================================
-   RESPONSIVE DESIGN
+   HOVER / FOCUS
+======================================== */
+
+@media (hover: hover) {
+  .contact-form-card:hover {
+    border-color: var(--border-hover, var(--primary-color));
+    transform: translateY(-4px);
+  }
+}
+
+.contact-submit:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 4px;
+}
+
+/* ========================================
+   TABLETS
 ======================================== */
 
 @media (max-width: 991px) {
@@ -457,7 +495,33 @@
 }
 
 /* ========================================
-   ACCESSIBILITY
+   SMALL MOBILE
+======================================== */
+
+@media (max-width: 380px) {
+  .contact-section {
+    padding-inline: 15px;
+  }
+
+  .contact-title {
+    font-size: 33px;
+  }
+
+  .contact-ar .contact-title {
+    font-size: 29px;
+  }
+
+  .contact-form-card {
+    padding: 21px 15px;
+  }
+
+  .contact-form-heading {
+    gap: 9px;
+  }
+}
+
+/* ========================================
+   REDUCED MOTION
 ======================================== */
 
 @media (prefers-reduced-motion: reduce) {

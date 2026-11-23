@@ -7,13 +7,13 @@
 /* ---------- Main Section ---------- */
 .hero-section {
   position: relative;
+  isolation: isolate;
   width: 100%;
   max-width: 100%;
   min-width: 0;
   min-height: 690px;
   padding: 88px 24px 34px;
   overflow: hidden;
-  isolation: isolate;
   box-sizing: border-box;
   background:
     radial-gradient(
@@ -44,31 +44,30 @@
   font: inherit;
 }
 
-/* Background decoration */
-.hero-section::before {
+/* ---------- Background Decoration ---------- */
+.hero-section::before,
+.hero-section::after {
   position: absolute;
   z-index: -1;
-  top: 70px;
-  left: -180px;
-  width: 360px;
-  height: 360px;
   content: "";
   border: 1px solid rgba(37, 99, 235, 0.09);
   border-radius: 50%;
   pointer-events: none;
 }
 
+.hero-section::before {
+  top: 70px;
+  left: -180px;
+  width: 360px;
+  height: 360px;
+}
+
 .hero-section::after {
-  position: absolute;
-  z-index: -1;
   right: -100px;
   bottom: 0;
   width: 300px;
   height: 300px;
-  content: "";
-  border: 1px solid rgba(37, 99, 235, 0.08);
-  border-radius: 50%;
-  pointer-events: none;
+  border-color: rgba(37, 99, 235, 0.08);
 }
 
 /* ---------- Main Container ---------- */
@@ -84,7 +83,10 @@
   margin: 0 auto;
 }
 
-/* ---------- Content ---------- */
+/* =========================================
+   CONTENT
+========================================= */
+
 .hero-content {
   position: relative;
   z-index: 2;
@@ -203,6 +205,7 @@
 }
 
 .hero-typing-label svg {
+  flex-shrink: 0;
   color: var(--primary-color, #2563eb);
   font-size: 18px;
 }
@@ -364,6 +367,7 @@
 /* =========================================
    VISUAL / PROFILE IMAGE
 ========================================= */
+
 .hero-visual {
   position: relative;
   display: flex;
@@ -374,9 +378,11 @@
   min-width: 0;
   min-height: 490px;
   isolation: isolate;
+  overflow: visible;
   animation: heroVisualReveal 0.9s ease 0.1s both;
 }
 
+/* ---------- Glow ---------- */
 .hero-visual-glow {
   position: absolute;
   z-index: -2;
@@ -765,6 +771,7 @@
 /* =========================================
    RTL / ARABIC SUPPORT
 ========================================= */
+
 [dir="rtl"] .hero-section {
   text-align: right;
 }
@@ -837,6 +844,7 @@
 /* =========================================
    TABLET — 1024px
 ========================================= */
+
 @media (max-width: 1024px) {
   .hero-section {
     min-height: auto;
@@ -874,29 +882,12 @@
     gap: 8px;
     padding: 11px 12px;
   }
-
-  .hero-card-top {
-    right: 0;
-  }
-
-  .hero-card-bottom {
-    left: 0;
-  }
-
-  [dir="rtl"] .hero-card-top {
-    right: auto;
-    left: 0;
-  }
-
-  [dir="rtl"] .hero-card-bottom {
-    right: 0;
-    left: auto;
-  }
 }
 
 /* =========================================
    SMALL TABLET — 900px
 ========================================= */
+
 @media (max-width: 900px) {
   .hero-section {
     padding-top: 72px;
@@ -966,6 +957,7 @@
 /* =========================================
    MOBILE — 767px
 ========================================= */
+
 @media (max-width: 767px) {
   .hero-section {
     min-height: auto;
@@ -1222,6 +1214,7 @@
 /* =========================================
    SMALL MOBILE — 480px
 ========================================= */
+
 @media (max-width: 480px) {
   .hero-section {
     padding: 38px 16px 22px;
@@ -1467,6 +1460,7 @@
 /* =========================================
    EXTRA SMALL MOBILE — 380px
 ========================================= */
+
 @media (max-width: 380px) {
   .hero-section {
     padding-right: 12px;
@@ -1569,6 +1563,7 @@
 /* =========================================
    FINAL OVERFLOW SAFETY
 ========================================= */
+
 .hero-section,
 .hero-container,
 .hero-content,
@@ -1578,14 +1573,16 @@
   max-width: 100%;
 }
 
-.hero-visual {
-  overflow: hidden;
-}
-
 .hero-floating-card {
   overflow-wrap: anywhere;
 }
 
+/* Keep floating cards visible on desktop and tablet */
+.hero-visual {
+  overflow: visible;
+}
+
+/* Prevent horizontal overflow on mobile */
 @media (max-width: 767px) {
   .hero-section {
     padding-right: 16px;
@@ -1618,6 +1615,7 @@
 /* =========================================
    ACCESSIBILITY & REDUCED MOTION
 ========================================= */
+
 @media (prefers-reduced-motion: reduce) {
   .hero-section *,
   .hero-section *::before,
@@ -1632,6 +1630,7 @@
 /* =========================================
    KEYFRAMES
 ========================================= */
+
 @keyframes heroContentReveal {
   from {
     opacity: 0;

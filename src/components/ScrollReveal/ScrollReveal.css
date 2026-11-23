@@ -1,5 +1,7 @@
 /* ========================================
    GLOBAL SCROLL REVEAL — NADIR.DEV
+   Smooth Scroll Animations
+   Responsive | Accessible
 ======================================== */
 
 .scroll-reveal {
@@ -8,11 +10,12 @@
     opacity var(--reveal-duration, 700ms) ease,
     transform var(--reveal-duration, 700ms) cubic-bezier(0.22, 1, 0.36, 1);
   transition-delay: var(--reveal-delay, 0ms);
-
   will-change: opacity, transform;
 }
 
-/* Directions */
+/* ========================================
+   REVEAL DIRECTIONS
+======================================== */
 
 .reveal-up {
   transform: translate3d(0, 45px, 0);
@@ -34,7 +37,9 @@
   transform: scale(0.92);
 }
 
-/* Visible state */
+/* ========================================
+   VISIBLE STATE
+======================================== */
 
 .scroll-reveal.is-revealed {
   opacity: 1;
@@ -42,7 +47,9 @@
   will-change: auto;
 }
 
-/* Accessibility */
+/* ========================================
+   ACCESSIBILITY
+======================================== */
 
 @media (prefers-reduced-motion: reduce) {
   .scroll-reveal,
@@ -50,16 +57,22 @@
     opacity: 1;
     transform: none;
     transition: none;
+    transition-delay: 0ms;
     will-change: auto;
   }
 }
 
-/* Mobile optimization */
+/* ========================================
+   MOBILE OPTIMIZATION
+======================================== */
 
 @media (max-width: 767px) {
-  .reveal-up,
-  .reveal-down {
+  .reveal-up {
     transform: translate3d(0, 25px, 0);
+  }
+
+  .reveal-down {
+    transform: translate3d(0, -25px, 0);
   }
 
   .reveal-left,

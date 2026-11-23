@@ -4,7 +4,7 @@ import { SiJavascript } from "react-icons/si";
 import nadStore from "../assets/images/nad-store-showcase.png";
 import todoApp from "../assets/images/To-do-showcase.png";
 import portfolio from "../assets/images/portfolio-showcase.jpg";
-import blogSystem from "../assets//images/blog-system-showcase.jpg";
+import blogSystem from "../assets/images/blog-system-showcase.jpg";
 import algorithmsDSApp from "../assets/images/algorithms&DDS-showcase (1).jpg";
 
 export const projectsData = [
@@ -14,22 +14,15 @@ export const projectsData = [
     eyebrow: "E-COMMERCE PLATFORM",
     category: "React",
     detailCategory: "E-Commerce Application",
-
-    // Project showcase image
     image: nadStore,
-
     description:
-      "A modern e-commerce platform featuring product discovery, shopping cart management, user authentication, order tracking, and Stripe payment integration. Currently under active development.",
-
+      "A deployed e-commerce platform featuring product discovery, shopping cart management, user authentication, order tracking, and Stripe checkout integration in test mode.",
     overview:
       "Nad Store is an e-commerce platform built to deliver a practical online shopping experience. It combines a modular React frontend with Firebase services and Cloudflare Workers for payment-related backend operations.",
-
     challenge:
       "Building a maintainable shopping experience that connects product browsing, authentication, cart persistence, order management, and payment processing.",
-
     solution:
       "A component-based React application integrated with Firebase Authentication, Firestore, and a Cloudflare Worker for payment processing and Stripe webhook handling.",
-
     features: [
       "Product browsing, search, and category filtering",
       "Shopping cart and checkout workflow",
@@ -38,7 +31,6 @@ export const projectsData = [
       "Stripe payment integration in test mode",
       "Responsive interface for desktop and mobile",
     ],
-
     technologies: [
       "React",
       "JavaScript",
@@ -48,28 +40,24 @@ export const projectsData = [
       "Cloudflare Workers",
       "CSS3",
     ],
-
     cardTechnologies: ["React", "Firebase", "Stripe", "Firestore"],
-
-    github: "",
-    liveDemo: "",
-
-    accent: "orange",
+    github: "https://github.com/NadirAhmedMohamed/nad-store",
+    liveDemo: "https://nad-store.pages.dev",
+    accent: "#f59e0b",
     icon: FaReact,
     iconType: "react",
     number: "01",
     featured: true,
-    status: "in-progress",
-    statusLabel: "IN PROGRESS",
-
+    status: "live",
+    statusLabel: "LIVE — SOFT LAUNCH",
     translations: {
       ar: {
         title: "متجر ناد",
         eyebrow: "منصة تجارة إلكترونية",
         detailCategory: "تطبيق تجارة إلكترونية",
-        statusLabel: "قيد التطوير",
+        statusLabel: "متاح — إطلاق تجريبي",
         description:
-          "منصة تجارة إلكترونية عصرية تتيح استكشاف المنتجات وإدارة سلة التسوق وتسجيل الدخول ومتابعة الطلبات والدفع الإلكتروني عبر Stripe. المشروع حالياً قيد التطوير.",
+          "منصة تجارة إلكترونية منشورة تتيح استكشاف المنتجات وإدارة سلة التسوق وتسجيل الدخول ومتابعة الطلبات، مع تكامل Stripe في وضع الاختبار.",
         overview:
           "متجر ناد هو مشروع تجارة إلكترونية يهدف إلى تقديم تجربة تسوق عملية وسهلة الاستخدام، من خلال واجهة React وخدمات Firebase وCloudflare Workers للعمليات المتعلقة بالدفع.",
         challenge:
@@ -94,22 +82,15 @@ export const projectsData = [
     eyebrow: "PRODUCTIVITY APPLICATION",
     category: "React",
     detailCategory: "React Application",
-
-    // Project showcase image
     image: todoApp,
-
     description:
       "A clean and responsive task management application built with React. Organize everyday tasks, manage your workflow, and keep track of your progress through a simple and intuitive interface.",
-
     overview:
       "The To-Do App was created to make everyday task management simple and accessible. It demonstrates reusable React components, state management with Hooks, and persistent task storage using the browser's Local Storage.",
-
     challenge:
       "Keeping tasks organized while providing a responsive and easy-to-use interface across different screen sizes.",
-
     solution:
       "A component-based React interface with clear task actions, filtering options, and Local Storage persistence so tasks remain available after refreshing the page.",
-
     features: [
       "Add, edit, and delete tasks",
       "Filter tasks to find what matters",
@@ -117,19 +98,15 @@ export const projectsData = [
       "Responsive interface for desktop and mobile",
       "Reusable React components and Hooks",
     ],
-
     technologies: ["React", "JavaScript", "CSS3", "Local Storage"],
     cardTechnologies: ["React", "JavaScript", "CSS"],
-
     github: "https://github.com/NadirAhmedMohamed/Todo-App",
     liveDemo: "https://2doapp-li.netlify.app/",
-
-    accent: "violet",
+    accent: "#8b5cf6",
     icon: FaReact,
     iconType: "react",
     number: "02",
     featured: true,
-
     translations: {
       ar: {
         title: "تطبيق إدارة المهام",
@@ -160,42 +137,32 @@ export const projectsData = [
     eyebrow: "PERSONAL DEVELOPER PORTFOLIO",
     category: "React",
     detailCategory: "React Application",
-
-    // Project showcase image
     image: portfolio,
-
     description:
       "A personal developer portfolio designed to showcase technical skills, selected projects, and professional growth through a modern, responsive experience.",
-
     overview:
       "This portfolio brings projects, skills, and contact information together in one place. Its design focuses on clarity, smooth interactions, responsive layouts, and a consistent visual identity.",
-
     challenge:
       "Presenting technical work in a memorable way while keeping the experience accessible across devices and languages.",
-
     solution:
-      "A modular React interface with reusable components, responsive styling, and a visual system designed to support future improvements.",
-
+      "A modular React interface with reusable components, responsive styling, and a visual system designed to support Arabic and English localization.",
     features: [
       "Dedicated sections for skills and projects",
       "Responsive layout for different screen sizes",
       "Project links and detailed project pages",
       "Consistent reusable UI components",
-      "Room for Arabic and English localization",
+      "Arabic and English language support with RTL/LTR layouts",
+      "Dark and light theme support",
     ],
-
     technologies: ["React", "JavaScript", "CSS3", "React Router"],
     cardTechnologies: ["React", "CSS", "React Router"],
-
-    github: "",
-    liveDemo: "",
-
-    accent: "orange",
+    github: "https://github.com/NadirAhmedMohamed/Portfolio",
+    liveDemo: "https://portfolio-nadirahmed.netlify.app/",
+    accent: "#f97316",
     icon: FaReact,
     iconType: "react",
     number: "03",
     featured: false,
-
     translations: {
       ar: {
         title: "معرض أعمال نادر",
@@ -214,7 +181,8 @@ export const projectsData = [
           "تصميم متجاوب مع مختلف الشاشات",
           "صفحات لعرض تفاصيل المشاريع",
           "مكونات واجهة قابلة لإعادة الاستخدام",
-          "دعم العربية والإنجليزية",
+          "دعم العربية والإنجليزية واتجاه RTL/LTR",
+          "الوضع الداكن والفاتح",
         ],
       },
     },
@@ -226,22 +194,15 @@ export const projectsData = [
     eyebrow: "CONTENT MANAGEMENT APPLICATION",
     category: "Vanilla JS",
     detailCategory: "Vanilla JavaScript",
-
-    // Project showcase image
     image: blogSystem,
-
     description:
       "A dynamic content management application built with vanilla JavaScript and a MockAPI integration. It allows users to manage blog entries through an interactive interface.",
-
     overview:
       "The Blog System demonstrates how JavaScript can communicate with an API to retrieve and update content. The interface focuses on managing entries and reflecting changes in the displayed data.",
-
     challenge:
       "Creating an interactive content interface that communicates with an API and keeps displayed records up to date.",
-
     solution:
       "A JavaScript-driven interface connected to MockAPI, with CRUD operations for creating, viewing, editing, and deleting entries.",
-
     features: [
       "Create new content entries",
       "View and manage existing posts",
@@ -249,19 +210,15 @@ export const projectsData = [
       "Delete entries when no longer needed",
       "API integration using MockAPI",
     ],
-
     technologies: ["JavaScript", "HTML5", "CSS3", "REST API"],
     cardTechnologies: ["JavaScript", "HTML", "CSS", "MockAPI"],
-
     github: "https://github.com/NadirAhmedMohamed/Blog-System-App",
     liveDemo: "https://blog-system-app.netlify.app/",
-
-    accent: "yellow",
+    accent: "#eab308",
     icon: SiJavascript,
     iconType: "javascript",
     number: "04",
     featured: false,
-
     translations: {
       ar: {
         title: "نظام المدونة",
@@ -292,22 +249,15 @@ export const projectsData = [
     eyebrow: "INTERACTIVE LEARNING APPLICATION",
     category: "Vanilla JS",
     detailCategory: "JavaScript Application",
-
-    // Project showcase image
     image: algorithmsDSApp,
-
     description:
       "An educational web application presenting data structures and their related algorithms through an interactive visual experience designed to make core computer science concepts easier to explore.",
-
     overview:
       "This project focuses on presenting foundational computer science concepts in a more approachable way. It combines structured information with visual output to support learning and exploration.",
-
     challenge:
       "Making abstract data structures and algorithms easier to understand through a clear and engaging interface.",
-
     solution:
       "An interactive educational experience that organizes concepts and presents supporting visual output in a browser-based interface.",
-
     features: [
       "Explore data structures and algorithms",
       "Visual presentation of core concepts",
@@ -315,19 +265,15 @@ export const projectsData = [
       "Browser-based interactive experience",
       "Responsive web interface",
     ],
-
     technologies: ["JavaScript", "HTML5", "CSS3", "Algorithms"],
     cardTechnologies: ["JavaScript", "HTML", "CSS", "Algorithms"],
-
     github: "https://github.com/NadirAhmedMohamed/Algorithms-DSs-App",
     liveDemo: "https://algorirthms-dss-app.netlify.app/",
-
-    accent: "cyan",
+    accent: "#06b6d4",
     icon: SiJavascript,
     iconType: "javascript",
     number: "05",
     featured: true,
-
     translations: {
       ar: {
         title: "الخوارزميات وهياكل البيانات",

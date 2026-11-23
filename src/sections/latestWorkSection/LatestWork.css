@@ -8,7 +8,6 @@
   --lw-accent: var(--primary-color, #3b82f6);
   --lw-text: var(--text-color, #f4f4f5);
   --lw-muted: var(--text-muted, #a1a1aa);
-  --lw-surface: var(--surface-color, #141418);
   --lw-border: var(--border-color, rgba(255, 255, 255, 0.09));
 
   position: relative;
@@ -49,6 +48,7 @@
 
 .latest-projects__intro {
   width: 100%;
+  min-width: 0;
   margin-bottom: 38px;
 }
 
@@ -82,6 +82,7 @@
   align-items: flex-end;
   justify-content: space-between;
   gap: 30px;
+  min-width: 0;
 }
 
 .latest-projects__heading-copy {
@@ -97,6 +98,7 @@
   line-height: 1.12;
   letter-spacing: -2.8px;
   overflow-wrap: anywhere;
+  text-wrap: balance;
 }
 
 .latest-projects__title span {
@@ -109,6 +111,7 @@
   color: var(--lw-muted);
   font-size: 14px;
   line-height: 1.9;
+  overflow-wrap: anywhere;
 }
 
 .latest-projects__count {
@@ -134,6 +137,7 @@
   font-size: 9px;
   font-weight: 800;
   letter-spacing: 2px;
+  white-space: nowrap;
 }
 
 /* =========================================
@@ -144,6 +148,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 9px;
+  min-width: 0;
   margin: 36px 0 28px;
 }
 
@@ -173,7 +178,6 @@
 .latest-projects__filter:hover {
   border-color: var(--lw-accent);
   color: var(--lw-text);
-  transform: translateY(-2px);
 }
 
 .latest-projects__filter.active {
@@ -227,6 +231,7 @@
   color: var(--lw-muted);
   text-align: center;
   font-size: 14px;
+  line-height: 1.8;
 }
 
 /* =========================================
@@ -245,22 +250,27 @@
 }
 
 .latest-projects__footer p {
+  max-width: 100%;
   margin: 0;
   color: var(--lw-muted);
   font-size: 12px;
   line-height: 1.8;
+  overflow-wrap: anywhere;
 }
 
 .latest-projects__explore-link {
   display: inline-flex;
   align-items: center;
   gap: 9px;
+  flex-shrink: 0;
   color: var(--lw-accent);
   font-size: 12px;
   font-weight: 800;
   text-decoration: none;
 
-  transition: gap 180ms ease;
+  transition:
+    gap 180ms ease,
+    color 180ms ease;
 }
 
 .latest-projects__explore-link:hover {
@@ -279,7 +289,6 @@
 :root[data-theme="dark"] .latest-projects {
   --lw-text: var(--text-color, #f1f5f9);
   --lw-muted: var(--text-muted, #94a3b8);
-  --lw-surface: var(--surface-color, #111b2e);
   --lw-border: var(--border-color, rgba(148, 163, 184, 0.14));
   --filter-bg: rgba(255, 255, 255, 0.025);
 
@@ -299,7 +308,6 @@
 :root[data-theme="light"] .latest-projects {
   --lw-text: var(--text-color, #18181b);
   --lw-muted: var(--text-muted, #71717a);
-  --lw-surface: var(--surface-color, #ffffff);
   --lw-border: var(--border-color, rgba(24, 24, 27, 0.12));
   --filter-bg: rgba(24, 24, 27, 0.025);
 
@@ -324,10 +332,6 @@
   letter-spacing: 0;
 }
 
-.latest-projects[dir="rtl"] .latest-projects__heading-row {
-  flex-direction: row;
-}
-
 .latest-projects[dir="rtl"] .latest-projects__title {
   letter-spacing: 0;
   line-height: 1.4;
@@ -342,10 +346,6 @@
 }
 
 .latest-projects[dir="rtl"] .latest-projects__count small {
-  letter-spacing: 0;
-}
-
-.latest-projects[dir="rtl"] .latest-projects__filter {
   letter-spacing: 0;
 }
 
@@ -370,6 +370,12 @@
   outline: 2px solid var(--lw-accent);
   outline-offset: 4px;
   border-radius: 5px;
+}
+
+@media (hover: hover) {
+  .latest-projects__filter:hover {
+    transform: translateY(-2px);
+  }
 }
 
 /* =========================================
@@ -430,6 +436,10 @@
     gap: 12px;
   }
 
+  .latest-projects__heading-copy {
+    flex: 1;
+  }
+
   .latest-projects__title {
     font-size: clamp(33px, 9vw, 47px);
     letter-spacing: -1.6px;
@@ -486,9 +496,36 @@
   .latest-projects__footer p {
     font-size: 11px;
   }
+}
 
-  .latest-projects[dir="rtl"] .latest-projects__heading-row {
-    flex-direction: row;
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 380px) {
+  .latest-projects {
+    padding-inline: 14px;
+  }
+
+  .latest-projects__heading-row {
+    gap: 8px;
+  }
+
+  .latest-projects__title {
+    font-size: 32px;
+  }
+
+  .latest-projects__count > span {
+    font-size: 25px;
+  }
+
+  .latest-projects__count small {
+    font-size: 7px;
+  }
+
+  .latest-projects__filter {
+    padding-inline: 10px;
+    font-size: 9px;
   }
 }
 

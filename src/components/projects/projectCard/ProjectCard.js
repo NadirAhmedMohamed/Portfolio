@@ -52,11 +52,15 @@ function ProjectCard({ project, index = 0, language = "en" }) {
 
   const safeTechnologies = Array.isArray(technologies) ? technologies : [];
 
+  // Load the first project image eagerly and defer the rest.
+  const imageLoading = index === 0 ? "eager" : "lazy";
+  const imagePriority = index === 0 ? "high" : "auto";
+
   return (
     <article
-      className={`proj-card${featured ? " featured" : ""}${
-        status === "in-progress" ? " is-in-progress" : ""
-      }`}
+      className={`proj-card project-${slug || "unknown"}${
+        featured ? " featured" : ""
+      }${status === "in-progress" ? " is-in-progress" : ""}`}
       style={{ "--project-accent": accent || "#a78bfa" }}
       dir={isArabic ? "rtl" : "ltr"}
       lang={language}
@@ -67,10 +71,13 @@ function ProjectCard({ project, index = 0, language = "en" }) {
           <img
             src={image}
             alt={`${displayTitle} project preview`}
-            loading="lazy"
+            loading={imageLoading}
+            fetchPriority={imagePriority}
             decoding="async"
           />
+
           {number && <span className="project-number">{number}</span>}
+
           <span className="project-image-caption">{labels.viewProject}</span>
         </div>
       ) : (

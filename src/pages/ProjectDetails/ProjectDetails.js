@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 
 import {
@@ -134,7 +134,7 @@ function TechIcon({ technology }) {
    PROJECT ARTWORK FALLBACK
 ========================================= */
 
-function ProjectArtwork({ project, language }) {
+function ProjectArtwork({ project, language, title, eyebrow }) {
   const ProjectIcon = project.icon;
   const isArabic = language === "ar";
 
@@ -142,7 +142,7 @@ function ProjectArtwork({ project, language }) {
     <div
       className={`details-artwork artwork-${project.accent || "orange"}`}
       role="img"
-      aria-label={`${project.title} project artwork`}
+      aria-label={`${title} project artwork`}
     >
       <div className="artwork-grid" />
 
@@ -159,9 +159,9 @@ function ProjectArtwork({ project, language }) {
         </div>
 
         <div className="artwork-window-content">
-          <div className="artwork-mini-label">{project.eyebrow}</div>
+          <div className="artwork-mini-label">{eyebrow}</div>
 
-          <div className="artwork-main-title">{project.title}</div>
+          <div className="artwork-main-title">{title}</div>
 
           <div className="artwork-lines">
             <span />
@@ -199,14 +199,7 @@ function ProjectDetails() {
   const { slug } = useParams();
   const navigate = useNavigate();
 
-  // Navigate to Latest Work on the Home page
-  const goToLatestProjects = () => {
-    navigate("/", {
-      state: {
-        scrollToSection: "latest-proj",
-      },
-    });
-  };
+  const originalTitleRef = useRef(document.title);
 
   const [language, setLanguage] = useState(() => {
     if (typeof document === "undefined") return "en";
@@ -216,18 +209,30 @@ function ProjectDetails() {
       : "en";
   });
 
-  /* Read project directly from projectsData */
-
   const project = getProjectBySlug(slug);
 
   const isArabic = language === "ar";
   const t = translations[language];
 
-  /* Use the project's own translation when available */
+  /* =========================================
+     PROJECT TRANSLATION
+  ========================================= */
 
   const projectText = project?.translations?.[language] || {};
 
   const getText = (key) => projectText[key] || project?.[key] || "";
+
+  /* =========================================
+     NAVIGATION
+  ========================================= */
+
+  const goToLatestProjects = () => {
+    navigate("/", {
+      state: {
+        scrollToSection: "latest-proj",
+      },
+    });
+  };
 
   /* =========================================
      LANGUAGE DETECTION
@@ -257,28 +262,39 @@ function ProjectDetails() {
   }, []);
 
   /* =========================================
-     PAGE TITLE AND SCROLL
+     PAGE TITLE
   ========================================= */
 
   useEffect(() => {
-    const originalTitle = document.title;
-
-    if (project) {
-      const translatedTitle =
-        project.translations?.[language]?.title || project.title;
-
-      document.title = `${translatedTitle} | NADIR.DEV`;
+    if (!project) {
+      document.title = `${t.notFound} | NADIR.DEV`;
+      return;
     }
 
+    const translatedTitle = getText("title") || project.title;
+
+    document.title = `${translatedTitle} | NADIR.DEV`;
+  }, [slug, project, language]);
+
+  /* Restore the original document title on unmount */
+
+  useEffect(() => {
+    return () => {
+      document.title = originalTitleRef.current;
+    };
+  }, []);
+
+  /* =========================================
+     SCROLL TO TOP
+     Only when the project slug changes
+  ========================================= */
+
+  useEffect(() => {
     window.scrollTo({
       top: 0,
-      behavior: "instant",
+      behavior: "auto",
     });
-
-    return () => {
-      document.title = originalTitle;
-    };
-  }, [slug, project, language]);
+  }, [slug]);
 
   /* =========================================
      NOT FOUND
@@ -321,14 +337,18 @@ function ProjectDetails() {
   const overview = getText("overview");
   const challenge = getText("challenge");
   const solution = getText("solution");
-  const features = getText("features");
+
+  const rawFeatures = getText("features");
+  const features = Array.isArray(rawFeatures) ? rawFeatures : [];
 
   const category =
     getText("detailCategory") || project.detailCategory || project.category;
 
   const statusLabel = projectText.statusLabel || project.statusLabel;
 
-  const technologies = project.technologies || [];
+  const technologies = Array.isArray(project.technologies)
+    ? project.technologies
+    : [];
 
   const hasImage = Boolean(project.image);
 
@@ -389,6 +409,7 @@ function ProjectDetails() {
                 <span
                   className="details-primary-button is-unavailable"
                   title={t.unavailable}
+                  aria-disabled="true"
                 >
                   <FaGlobe />
                   <span>{t.unavailable}</span>
@@ -409,6 +430,7 @@ function ProjectDetails() {
                 <span
                   className="details-secondary-button is-unavailable"
                   title={t.unavailable}
+                  aria-disabled="true"
                 >
                   <FaGithub />
                   <span>{t.source}</span>
@@ -425,7 +447,7 @@ function ProjectDetails() {
             </div>
           </div>
 
-          {/* Use actual project image when available */}
+          {/* PROJECT IMAGE OR FALLBACK ARTWORK */}
 
           {hasImage ? (
             <div className="details-project-image">
@@ -440,7 +462,12 @@ function ProjectDetails() {
               />
             </div>
           ) : (
-            <ProjectArtwork project={project} language={language} />
+            <ProjectArtwork
+              project={project}
+              language={language}
+              title={title}
+              eyebrow={eyebrow}
+            />
           )}
         </section>
 
@@ -492,7 +519,7 @@ function ProjectDetails() {
 
         {/* FEATURES */}
 
-        {features?.length > 0 && (
+        {features.length > 0 && (
           <section className="details-section details-features-section">
             <div className="details-section-heading">
               <span className="details-section-number">02</span>

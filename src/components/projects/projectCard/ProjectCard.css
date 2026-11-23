@@ -69,7 +69,9 @@
   background: linear-gradient(to bottom, transparent 55%, rgba(0, 0, 0, 0.35));
 }
 
-/* Project number */
+/* =========================
+   Project Number
+========================= */
 
 .project-number {
   position: absolute;
@@ -93,14 +95,14 @@
   font-weight: 700;
 }
 
-/* RTL image number */
-
 [dir="rtl"] .project-number {
   left: auto;
   right: 14px;
 }
 
-/* Image caption */
+/* =========================
+   Image Caption
+========================= */
 
 .project-image-caption {
   position: absolute;
@@ -332,6 +334,37 @@
 
 [data-theme="light"] .divider {
   background: var(--border-color, rgba(0, 0, 0, 0.1));
+}
+
+/* =========================
+   Blog System - Light Theme
+========================= */
+
+[data-theme="light"] .proj-card.project-blog-system .title {
+  color: #111827;
+}
+
+[data-theme="light"] .proj-card.project-blog-system .description {
+  color: #374151;
+}
+
+[data-theme="light"] .proj-card.project-blog-system .project-category {
+  color: #854d0e;
+  background: rgba(180, 83, 9, 0.12);
+}
+
+[data-theme="light"] .proj-card.project-blog-system .project-technologies span {
+  color: #854d0e;
+  background: rgba(180, 83, 9, 0.1);
+}
+
+[data-theme="light"] .proj-card.project-blog-system .links a {
+  color: #1f2937;
+  border-color: #d1d5db;
+}
+
+[data-theme="light"] .proj-card.project-blog-system .links a:hover {
+  color: #fff;
 }
 
 /* =========================

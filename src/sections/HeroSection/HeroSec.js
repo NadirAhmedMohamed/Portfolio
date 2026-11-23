@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./HeroSec.css";
-import TypingEffect from "../../components/TypingEffect";
+import TypingEffect from "../../components/typingEffect/TypingEffect";
 
 import PersonalPhoto from "../../assets/images/Me.png";
 
@@ -73,9 +73,9 @@ const heroTranslations = {
 };
 
 function HeroSec() {
-  const [language, setLanguage] = useState(
-    () => localStorage.getItem("portfolio-language") || "en",
-  );
+  const [language, setLanguage] = useState(() => {
+    return localStorage.getItem("portfolio-language") === "ar" ? "ar" : "en";
+  });
 
   useEffect(() => {
     const syncLanguage = (event) => {

@@ -5,24 +5,11 @@ import { SiGmail } from "react-icons/si";
 import { FaGithub, FaArrowUp, FaLinkedin, FaArrowRight } from "react-icons/fa";
 
 import ScrollReveal from "../../ScrollReveal/ScrollReveal";
-
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
 function Footer() {
   const navigate = useNavigate();
   const location = useLocation();
-
-  const handleSectionNavigation = (sectionId) => {
-    if (location.pathname !== "/") {
-      navigate("/", { state: { scrollToSection: sectionId } });
-      return;
-    }
-
-    document.getElementById(sectionId)?.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
-  };
 
   const [language, setLanguage] = useState(
     document.documentElement.lang?.startsWith("ar") ? "ar" : "en",
@@ -57,10 +44,10 @@ function Footer() {
       emailLabel: "EMAIL ME AT",
       navigation: "QUICK LINKS",
       links: [
-        { label: "About me", href: "#about" },
-        { label: "Skills", href: "#skills" },
-        { label: "Latest projects", href: "#latest-proj" },
-        { label: "Contact", href: "#contact" },
+        { label: "About me", id: "about" },
+        { label: "Skills", id: "skills" },
+        { label: "Latest projects", id: "latest-proj" },
+        { label: "Contact", id: "contact" },
       ],
       follow: "FOLLOW ME",
       rights: "All rights reserved.",
@@ -74,10 +61,10 @@ function Footer() {
       emailLabel: "راسلني عبر البريد",
       navigation: "روابط سريعة",
       links: [
-        { label: "من أنا", href: "#about" },
-        { label: "المهارات", href: "#skills" },
-        { label: "أحدث المشاريع", href: "#latest-proj" },
-        { label: "تواصل معي", href: "#contact" },
+        { label: "من أنا", id: "about" },
+        { label: "المهارات", id: "skills" },
+        { label: "أحدث المشاريع", id: "latest-proj" },
+        { label: "تواصل معي", id: "contact" },
       ],
       follow: "تابعني",
       rights: "جميع الحقوق محفوظة.",
@@ -87,6 +74,20 @@ function Footer() {
   };
 
   const t = content[language];
+
+  const handleSectionNavigation = (sectionId) => {
+    if (location.pathname !== "/") {
+      navigate("/", {
+        state: { scrollToSection: sectionId },
+      });
+      return;
+    }
+
+    document.getElementById(sectionId)?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  };
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -99,6 +100,7 @@ function Footer() {
     <footer
       className={`site-footer ${isArabic ? "footer-ar" : "footer-en"}`}
       dir={isArabic ? "rtl" : "ltr"}
+      lang={language}
     >
       <div className="footer-container">
         {/* Main CTA */}
@@ -106,7 +108,7 @@ function Footer() {
           <div className="footer-cta">
             <div className="footer-cta-content">
               <span className="footer-eyebrow">
-                <span className="footer-eyebrow-dot"></span>
+                <span className="footer-eyebrow-dot" aria-hidden="true" />
                 {t.eyebrow}
               </span>
 
@@ -119,21 +121,24 @@ function Footer() {
               className="footer-email-button"
             >
               <span>{t.talk}</span>
-              <FaArrowRight className="footer-button-arrow" />
+              <FaArrowRight
+                className="footer-button-arrow"
+                aria-hidden="true"
+              />
             </a>
           </div>
         </ScrollReveal>
 
-        <div className="footer-divider"></div>
+        <div className="footer-divider" aria-hidden="true" />
 
         {/* Footer details */}
         <div className="footer-main">
           {/* Brand */}
           <ScrollReveal direction="up" delay={80} duration={750}>
             <div className="footer-brand-column">
-              <a href="#home" className="footer-brand">
+              <Link to="/" className="footer-brand">
                 NADIR<span>.DEV</span>
-              </a>
+              </Link>
 
               <span className="footer-brand-caption">
                 {isArabic
@@ -148,11 +153,11 @@ function Footer() {
                   rel="noopener noreferrer"
                   aria-label="LinkedIn"
                 >
-                  <FaLinkedin />
+                  <FaLinkedin aria-hidden="true" />
                 </a>
 
                 <a href="mailto:nader.a.j12@gmail.com" aria-label="Email">
-                  <SiGmail />
+                  <SiGmail aria-hidden="true" />
                 </a>
 
                 <a
@@ -161,7 +166,7 @@ function Footer() {
                   rel="noopener noreferrer"
                   aria-label="GitHub"
                 >
-                  <FaGithub />
+                  <FaGithub aria-hidden="true" />
                 </a>
               </div>
             </div>
@@ -173,24 +178,23 @@ function Footer() {
               <h3>{t.navigation}</h3>
 
               <ul>
-                {t.links.map((link) => {
-                  const sectionId = link.href.replace("#", "");
-
-                  return (
-                    <li key={link.href}>
-                      <a
-                        href={link.href}
-                        onClick={(e) => {
-                          e.preventDefault();
-                          handleSectionNavigation(sectionId);
-                        }}
-                      >
-                        <span>{link.label}</span>
-                        <FaArrowRight className="footer-link-arrow" />
-                      </a>
-                    </li>
-                  );
-                })}
+                {t.links.map((link) => (
+                  <li key={link.id}>
+                    <a
+                      href={`/#${link.id}`}
+                      onClick={(event) => {
+                        event.preventDefault();
+                        handleSectionNavigation(link.id);
+                      }}
+                    >
+                      <span>{link.label}</span>
+                      <FaArrowRight
+                        className="footer-link-arrow"
+                        aria-hidden="true"
+                      />
+                    </a>
+                  </li>
+                ))}
               </ul>
             </div>
           </ScrollReveal>
@@ -218,7 +222,7 @@ function Footer() {
                   GitHub
                 </a>
 
-                <span>·</span>
+                <span aria-hidden="true">·</span>
 
                 <a
                   href="https://www.linkedin.com/in/nadirahmed10/"
@@ -247,7 +251,7 @@ function Footer() {
               title={t.top}
             >
               <span>{t.top}</span>
-              <FaArrowUp />
+              <FaArrowUp aria-hidden="true" />
             </button>
           </div>
         </ScrollReveal>

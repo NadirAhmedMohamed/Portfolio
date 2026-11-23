@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 function ScrollReveal({
   children,
@@ -14,45 +14,86 @@ function ScrollReveal({
 
   useEffect(() => {
     const element = elementRef.current;
+
     if (!element) return;
 
-    if (!("IntersectionObserver" in window)) {
+    // Respect reduced-motion accessibility preference.
+    const prefersReducedMotion =
+      typeof window !== "undefined" &&
+      window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+
+    if (prefersReducedMotion) {
       setIsVisible(true);
       return;
     }
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
+    // Fallback for browsers without IntersectionObserver.
+    if (typeof window === "undefined" || !("IntersectionObserver" in window)) {
+      setIsVisible(true);
+      return;
+    }
 
-          if (once) {
-            observer.unobserve(element);
+    let observer;
+
+    try {
+      observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+
+            if (once) {
+              observer.unobserve(element);
+            }
+          } else if (!once) {
+            setIsVisible(false);
           }
-        } else if (!once) {
-          setIsVisible(false);
-        }
-      },
-      {
-        threshold,
-        rootMargin: "0px 0px -40px 0px",
-      },
-    );
+        },
+        {
+          threshold,
+          rootMargin: "0px 0px -40px 0px",
+        },
+      );
 
-    observer.observe(element);
+      observer.observe(element);
+    } catch (error) {
+      // Keep content visible if observer initialization fails.
+      console.error("ScrollReveal initialization error:", error);
+      setIsVisible(true);
+    }
 
-    return () => observer.disconnect();
+    return () => {
+      observer?.disconnect();
+    };
   }, [once, threshold]);
+
+  const safeDirection = ["up", "down", "left", "right", "zoom"].includes(
+    direction,
+  )
+    ? direction
+    : "up";
+
+  const safeDelay = Number.isFinite(Number(delay))
+    ? Math.max(0, Number(delay))
+    : 0;
+
+  const safeDuration = Number.isFinite(Number(duration))
+    ? Math.max(0, Number(duration))
+    : 700;
 
   return (
     <div
       ref={elementRef}
-      className={`scroll-reveal reveal-${direction} ${
-        isVisible ? "is-revealed" : ""
-      } ${className}`}
+      className={[
+        "scroll-reveal",
+        `reveal-${safeDirection}`,
+        isVisible ? "is-revealed" : "",
+        className,
+      ]
+        .filter(Boolean)
+        .join(" ")}
       style={{
-        "--reveal-delay": `${delay}ms`,
-        "--reveal-duration": `${duration}ms`,
+        "--reveal-delay": `${safeDelay}ms`,
+        "--reveal-duration": `${safeDuration}ms`,
       }}
     >
       {children}

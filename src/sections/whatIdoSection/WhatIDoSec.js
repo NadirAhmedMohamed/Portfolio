@@ -6,24 +6,46 @@ import { SiJavascript } from "react-icons/si";
 
 import ScrollReveal from "../../components/ScrollReveal/ScrollReveal";
 
+function getCurrentLanguage() {
+  const documentLanguage = document.documentElement.lang;
+
+  if (documentLanguage) {
+    return documentLanguage.toLowerCase().startsWith("ar") ? "ar" : "en";
+  }
+
+  return localStorage.getItem("portfolio-language") === "ar" ? "ar" : "en";
+}
+
 function WhatIDoSec() {
-  const [language, setLanguage] = useState(() => {
-    return localStorage.getItem("portfolio-language") || "en";
-  });
+  const [language, setLanguage] = useState(getCurrentLanguage);
 
   const isArabic = language === "ar";
 
   useEffect(() => {
     const updateLanguage = () => {
-      setLanguage(localStorage.getItem("portfolio-language") || "en");
+      setLanguage(getCurrentLanguage());
     };
 
+    // Listen for language changes
     window.addEventListener("portfolio-language-change", updateLanguage);
     window.addEventListener("storage", updateLanguage);
 
+    // Observe changes to the document language
+    const observer = new MutationObserver(updateLanguage);
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["lang"],
+    });
+
+    updateLanguage();
+
     return () => {
       window.removeEventListener("portfolio-language-change", updateLanguage);
+
       window.removeEventListener("storage", updateLanguage);
+
+      observer.disconnect();
     };
   }, []);
 
@@ -93,7 +115,7 @@ function WhatIDoSec() {
     },
   };
 
-  const text = content[isArabic ? "ar" : "en"];
+  const text = content[language];
 
   return (
     <section
@@ -128,8 +150,8 @@ function WhatIDoSec() {
 
             return (
               <ScrollReveal
-                key={project.title}
-                direction="right"
+                key={project.number}
+                direction={isArabic ? "left" : "right"}
                 delay={index * 130}
                 duration={750}
               >
