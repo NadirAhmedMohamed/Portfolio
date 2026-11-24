@@ -408,22 +408,16 @@
 
 /* ========================================
    FOOTER BOTTOM
+   Always Visible
 ======================================== */
-
-.footer-container > .scroll-reveal {
-  width: 100%;
-  min-width: 0;
-}
-
-.footer-container > .scroll-reveal > .footer-bottom {
-  width: 100%;
-  min-width: 0;
-}
 
 .footer-bottom {
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  width: 100%;
+  min-width: 0;
 
   gap: 20px;
   padding-top: 22px;
@@ -522,7 +516,6 @@
     gap: 45px 35px;
   }
 
-  /* Correct the grid item, not its nested content */
   .footer-main > .scroll-reveal:first-child {
     grid-column: 1 / -1;
   }
@@ -579,12 +572,10 @@
     padding: 40px 0;
   }
 
-  /* Brand spans both columns */
   .footer-main > .scroll-reveal:first-child {
     grid-column: 1 / -1;
   }
 
-  /* Contact spans both columns */
   .footer-main > .scroll-reveal:last-child {
     grid-column: 1 / -1;
   }

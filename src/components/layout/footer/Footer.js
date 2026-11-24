@@ -236,25 +236,23 @@ function Footer() {
           </ScrollReveal>
         </div>
 
-        {/* Footer bottom */}
-        <ScrollReveal direction="up" delay={100} duration={700}>
-          <div className="footer-bottom">
-            <p>
-              © {new Date().getFullYear()} <span>NADIR.DEV</span>. {t.rights}
-            </p>
+        {/* Footer bottom - Always visible */}
+        <div className="footer-bottom">
+          <p>
+            © {new Date().getFullYear()} <span>NADIR.DEV</span>. {t.rights}
+          </p>
 
-            <button
-              type="button"
-              className="footer-back-top"
-              onClick={scrollToTop}
-              aria-label={t.top}
-              title={t.top}
-            >
-              <span>{t.top}</span>
-              <FaArrowUp aria-hidden="true" />
-            </button>
-          </div>
-        </ScrollReveal>
+          <button
+            type="button"
+            className="footer-back-top"
+            onClick={scrollToTop}
+            aria-label={t.top}
+            title={t.top}
+          >
+            <span>{t.top}</span>
+            <FaArrowUp aria-hidden="true" />
+          </button>
+        </div>
       </div>
 
       <div className="footer-background-text" aria-hidden="true">
