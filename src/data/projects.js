@@ -2,10 +2,10 @@ import { FaReact } from "react-icons/fa";
 import { SiJavascript } from "react-icons/si";
 
 import nadStore from "../assets/images/nad-store-showcase.png";
-import todoApp from "../assets/images/To-do-showcase.png";
+import tasklyPoster from "../assets/images/Taskly-poster.png";
 import portfolio from "../assets/images/portfolio-showcase.jpg";
-import blogSystem from "../assets/images/blog-system-showcase.jpg";
-import algorithmsDSApp from "../assets/images/algorithms&DDS-showcase (1).jpg";
+import blogSystemPoster from "../assets/images/Blog-System-poster.png";
+import algoLabPoster from "../assets/images/AlgoLab-poster.png";
 
 export const projectsData = [
   {
@@ -78,30 +78,38 @@ export const projectsData = [
 
   {
     slug: "todo-app",
-    title: "To-Do App",
-    eyebrow: "PRODUCTIVITY APPLICATION",
+    title: "Taskly",
+    eyebrow: "TASK MANAGEMENT APPLICATION",
     category: "React",
     detailCategory: "React Application",
-    image: todoApp,
+    image: tasklyPoster,
     description:
-      "A clean and responsive task management application built with React. Organize everyday tasks, manage your workflow, and keep track of your progress through a simple and intuitive interface.",
+      "A responsive task management application built with React. Taskly helps users organize daily activities, manage tasks, and track progress through a clean and intuitive interface.",
     overview:
-      "The To-Do App was created to make everyday task management simple and accessible. It demonstrates reusable React components, state management with Hooks, and persistent task storage using the browser's Local Storage.",
+      "Taskly is designed to make everyday task management simple and accessible. It uses reusable React components, Context API for shared state management, and Local Storage to keep tasks saved between sessions.",
     challenge:
-      "Keeping tasks organized while providing a responsive and easy-to-use interface across different screen sizes.",
+      "Creating a simple task management experience that makes it easy to organize activities, update tasks, and track completion without losing saved data.",
     solution:
-      "A component-based React interface with clear task actions, filtering options, and Local Storage persistence so tasks remain available after refreshing the page.",
+      "A component-based React application with shared state through Context API, task filtering, reusable dialogs, toast notifications, and Local Storage persistence.",
     features: [
       "Add, edit, and delete tasks",
-      "Filter tasks to find what matters",
-      "Persistent storage with Local Storage",
+      "Mark tasks as completed or active",
+      "Filter tasks by all, active, and completed status",
+      "Persistent task storage with Local Storage",
+      "Reusable React components and Context API",
+      "Toast notifications and interactive dialogs",
       "Responsive interface for desktop and mobile",
-      "Reusable React components and Hooks",
     ],
-    technologies: ["React", "JavaScript", "CSS3", "Local Storage"],
-    cardTechnologies: ["React", "JavaScript", "CSS"],
-    github: "https://github.com/NadirAhmedMohamed/Todo-App",
-    liveDemo: "https://2doapp-li.netlify.app/",
+    technologies: [
+      "React",
+      "JavaScript",
+      "React Context",
+      "CSS3",
+      "Local Storage",
+    ],
+    cardTechnologies: ["React", "JavaScript", "Context API", "CSS"],
+    github: "https://github.com/NadirAhmedMohamed/taskly",
+    liveDemo: "https://taskly-nadir.netlify.app/",
     accent: "#8b5cf6",
     icon: FaReact,
     iconType: "react",
@@ -109,23 +117,147 @@ export const projectsData = [
     featured: true,
     translations: {
       ar: {
-        title: "تطبيق إدارة المهام",
-        eyebrow: "تطبيق للإنتاجية",
+        title: "Taskly",
+        eyebrow: "تطبيق إدارة المهام",
         detailCategory: "تطبيق React",
         description:
-          "تطبيق لإدارة المهام اليومية باستخدام React، يساعد على تنظيم المهام ومتابعة الإنجاز من خلال واجهة بسيطة ومتجاوبة.",
+          "تطبيق متجاوب لإدارة المهام اليومية باستخدام React، يساعد على تنظيم الأنشطة ومتابعة الإنجاز من خلال واجهة بسيطة وسهلة الاستخدام.",
         overview:
-          "يهدف التطبيق إلى تسهيل إدارة المهام اليومية، ويستخدم مكونات React قابلة لإعادة الاستخدام وHooks وحفظ البيانات باستخدام Local Storage.",
+          "يهدف Taskly إلى تسهيل إدارة المهام اليومية، ويستخدم مكونات React قابلة لإعادة الاستخدام وContext API لإدارة الحالة المشتركة، مع حفظ المهام باستخدام Local Storage.",
         challenge:
-          "تنظيم المهام مع توفير واجهة سهلة الاستخدام ومتجاوبة مع مختلف أحجام الشاشات.",
+          "إنشاء تجربة بسيطة لتنظيم الأنشطة وتعديل المهام ومتابعة إنجازها دون فقدان البيانات المحفوظة.",
         solution:
-          "واجهة مبنية باستخدام React تتيح إدارة المهام وتصفيتها وحفظها محلياً حتى بعد تحديث الصفحة.",
+          "تطبيق React يعتمد على Context API لإدارة الحالة، مع تصفية المهام ونوافذ تفاعلية وإشعارات وحفظ البيانات محلياً.",
         features: [
           "إضافة المهام وتعديلها وحذفها",
-          "تصفية المهام وتنظيمها",
-          "حفظ البيانات باستخدام Local Storage",
+          "تحديد المهام كمكتملة أو نشطة",
+          "تصفية المهام حسب حالتها",
+          "حفظ المهام باستخدام Local Storage",
+          "مكونات قابلة لإعادة الاستخدام وContext API",
+          "إشعارات ونوافذ تفاعلية",
           "واجهة متجاوبة مع الهواتف والحواسيب",
-          "استخدام مكونات React وHooks",
+        ],
+      },
+    },
+  },
+
+  {
+    slug: "algorithms-ds-app",
+    title: "AlgoLab",
+    eyebrow: "ALGORITHMS & DATA STRUCTURES VISUALIZER",
+    category: "Vanilla JS",
+    detailCategory: "Vanilla JavaScript Application",
+    image: algoLabPoster,
+    description:
+      "An interactive algorithms and data structures visualizer built with HTML, CSS, and Vanilla JavaScript. Explore core computer science concepts through hands-on operations and visual learning.",
+    overview:
+      "AlgoLab is an educational web application that helps learners explore algorithms and data structures. It brings together searching and sorting algorithms alongside common data structures in an interactive browser-based experience.",
+    challenge:
+      "Making fundamental algorithms and data structures easier to explore and understand through an accessible, interactive interface.",
+    solution:
+      "A browser-based learning application that organizes algorithms and data structures into dedicated sections, allowing users to interact with operations and follow their behavior.",
+    features: [
+      "Linear Search and Binary Search",
+      "Selection, Bubble, Insertion, and Quick Sort",
+      "Arrays and Linked Lists",
+      "Stacks and Queues",
+      "Circular Queues and Trees",
+      "Interactive operations and visual learning",
+      "Responsive user interface",
+    ],
+    technologies: [
+      "JavaScript",
+      "HTML5",
+      "CSS3",
+      "Algorithms",
+      "Data Structures",
+    ],
+    cardTechnologies: ["JavaScript", "HTML", "CSS", "Algorithms"],
+    github: "https://github.com/NadirAhmedMohamed/algolab",
+    liveDemo: "https://algolab-nadir.netlify.app/",
+    accent: "#06b6d4",
+    icon: SiJavascript,
+    iconType: "javascript",
+    number: "03",
+    featured: true,
+    translations: {
+      ar: {
+        title: "AlgoLab",
+        eyebrow: "مختبر الخوارزميات وهياكل البيانات",
+        detailCategory: "تطبيق JavaScript",
+        description:
+          "تطبيق تفاعلي لاستكشاف الخوارزميات وهياكل البيانات، مبني باستخدام HTML وCSS وJavaScript، ويقدم مفاهيم علوم الحاسوب من خلال التجربة والتفاعل.",
+        overview:
+          "يساعد AlgoLab المتعلمين على استكشاف الخوارزميات وهياكل البيانات، ويجمع بين خوارزميات البحث والترتيب ومجموعة من هياكل البيانات في تجربة تعليمية تفاعلية داخل المتصفح.",
+        challenge:
+          "تسهيل استكشاف وفهم الخوارزميات وهياكل البيانات الأساسية من خلال واجهة واضحة وتفاعلية.",
+        solution:
+          "تطبيق تعليمي ينظم الخوارزميات وهياكل البيانات في أقسام مستقلة، ويتيح للمستخدم التفاعل مع العمليات ومتابعة طريقة عملها.",
+        features: [
+          "البحث الخطي والبحث الثنائي",
+          "خوارزميات Selection وBubble وInsertion وQuick Sort",
+          "المصفوفات والقوائم المرتبطة",
+          "المكدسات والطوابير",
+          "الطوابير الدائرية والأشجار",
+          "عمليات تفاعلية وتجربة تعليمية مرئية",
+          "واجهة مستخدم متجاوبة",
+        ],
+      },
+    },
+  },
+
+  {
+    slug: "blog-system",
+    title: "Blog System",
+    eyebrow: "CONTENT MANAGEMENT APPLICATION",
+    category: "Vanilla JS",
+    detailCategory: "Vanilla JavaScript",
+    image: blogSystemPoster,
+    description:
+      "A vanilla JavaScript blog management application with MockAPI integration. Create, view, edit, and delete blog posts through a responsive content management interface.",
+    overview:
+      "Blog System demonstrates how JavaScript communicates with a REST API to manage content. It provides an interface for creating and managing posts while keeping displayed records synchronized with the API.",
+    challenge:
+      "Creating an interactive content management interface that communicates with an API and keeps displayed records up to date.",
+    solution:
+      "A JavaScript-driven interface connected to MockAPI, supporting CRUD operations for creating, viewing, editing, and deleting blog posts.",
+    features: [
+      "Create new blog posts",
+      "View and manage existing posts",
+      "Edit and update post records",
+      "Delete posts when no longer needed",
+      "REST API integration using MockAPI",
+      "Responsive content management interface",
+    ],
+    technologies: ["JavaScript", "HTML5", "CSS3", "REST API", "MockAPI"],
+    cardTechnologies: ["JavaScript", "HTML", "CSS", "MockAPI"],
+    github: "https://github.com/NadirAhmedMohamed/Blog-System-App",
+    liveDemo: "https://blog-system-app.netlify.app/",
+    accent: "#eab308",
+    icon: SiJavascript,
+    iconType: "javascript",
+    number: "04",
+    featured: false,
+    translations: {
+      ar: {
+        title: "Blog System",
+        eyebrow: "تطبيق إدارة المحتوى",
+        detailCategory: "تطبيق JavaScript",
+        description:
+          "تطبيق لإدارة محتوى المدونات باستخدام JavaScript وربطه بواجهة MockAPI لإنشاء المقالات وعرضها وتعديلها وحذفها من خلال واجهة متجاوبة.",
+        overview:
+          "يوضح Blog System كيفية استخدام JavaScript للتواصل مع REST API وإدارة المحتوى، مع توفير واجهة لإنشاء المقالات وإدارتها وتحديث البيانات المعروضة.",
+        challenge:
+          "إنشاء واجهة تفاعلية لإدارة المحتوى والتواصل مع API وتحديث السجلات المعروضة.",
+        solution:
+          "واجهة JavaScript متصلة بـ MockAPI وتدعم عمليات الإضافة والعرض والتعديل والحذف.",
+        features: [
+          "إنشاء مقالات جديدة",
+          "عرض وإدارة المقالات الموجودة",
+          "تعديل وتحديث المقالات",
+          "حذف المقالات",
+          "التكامل مع REST API باستخدام MockAPI",
+          "واجهة متجاوبة لإدارة المحتوى",
         ],
       },
     },
@@ -161,7 +293,7 @@ export const projectsData = [
     accent: "#f97316",
     icon: FaReact,
     iconType: "react",
-    number: "03",
+    number: "05",
     featured: false,
     translations: {
       ar: {
@@ -183,116 +315,6 @@ export const projectsData = [
           "مكونات واجهة قابلة لإعادة الاستخدام",
           "دعم العربية والإنجليزية واتجاه RTL/LTR",
           "الوضع الداكن والفاتح",
-        ],
-      },
-    },
-  },
-
-  {
-    slug: "blog-system",
-    title: "Blog System",
-    eyebrow: "CONTENT MANAGEMENT APPLICATION",
-    category: "Vanilla JS",
-    detailCategory: "Vanilla JavaScript",
-    image: blogSystem,
-    description:
-      "A dynamic content management application built with vanilla JavaScript and a MockAPI integration. It allows users to manage blog entries through an interactive interface.",
-    overview:
-      "The Blog System demonstrates how JavaScript can communicate with an API to retrieve and update content. The interface focuses on managing entries and reflecting changes in the displayed data.",
-    challenge:
-      "Creating an interactive content interface that communicates with an API and keeps displayed records up to date.",
-    solution:
-      "A JavaScript-driven interface connected to MockAPI, with CRUD operations for creating, viewing, editing, and deleting entries.",
-    features: [
-      "Create new content entries",
-      "View and manage existing posts",
-      "Edit and update records",
-      "Delete entries when no longer needed",
-      "API integration using MockAPI",
-    ],
-    technologies: ["JavaScript", "HTML5", "CSS3", "REST API"],
-    cardTechnologies: ["JavaScript", "HTML", "CSS", "MockAPI"],
-    github: "https://github.com/NadirAhmedMohamed/Blog-System-App",
-    liveDemo: "https://blog-system-app.netlify.app/",
-    accent: "#eab308",
-    icon: SiJavascript,
-    iconType: "javascript",
-    number: "04",
-    featured: false,
-    translations: {
-      ar: {
-        title: "نظام المدونة",
-        eyebrow: "تطبيق إدارة المحتوى",
-        detailCategory: "تطبيق JavaScript",
-        description:
-          "تطبيق لإدارة محتوى المدونات باستخدام JavaScript وربطه بواجهة MockAPI لإضافة المقالات وتعديلها وحذفها.",
-        overview:
-          "يوضح المشروع كيفية استخدام JavaScript للتواصل مع واجهة API واسترجاع المحتوى وتحديثه.",
-        challenge:
-          "إنشاء واجهة تفاعلية لإدارة المحتوى والتواصل مع API وتحديث البيانات المعروضة.",
-        solution:
-          "واجهة JavaScript متصلة بـ MockAPI وتدعم عمليات الإضافة والعرض والتعديل والحذف.",
-        features: [
-          "إنشاء محتوى جديد",
-          "عرض وإدارة المقالات",
-          "تعديل وتحديث البيانات",
-          "حذف المقالات",
-          "التكامل مع MockAPI",
-        ],
-      },
-    },
-  },
-
-  {
-    slug: "algorithms-ds-app",
-    title: "Algorithms & Data Structures",
-    eyebrow: "INTERACTIVE LEARNING APPLICATION",
-    category: "Vanilla JS",
-    detailCategory: "JavaScript Application",
-    image: algorithmsDSApp,
-    description:
-      "An educational web application presenting data structures and their related algorithms through an interactive visual experience designed to make core computer science concepts easier to explore.",
-    overview:
-      "This project focuses on presenting foundational computer science concepts in a more approachable way. It combines structured information with visual output to support learning and exploration.",
-    challenge:
-      "Making abstract data structures and algorithms easier to understand through a clear and engaging interface.",
-    solution:
-      "An interactive educational experience that organizes concepts and presents supporting visual output in a browser-based interface.",
-    features: [
-      "Explore data structures and algorithms",
-      "Visual presentation of core concepts",
-      "Organized educational content",
-      "Browser-based interactive experience",
-      "Responsive web interface",
-    ],
-    technologies: ["JavaScript", "HTML5", "CSS3", "Algorithms"],
-    cardTechnologies: ["JavaScript", "HTML", "CSS", "Algorithms"],
-    github: "https://github.com/NadirAhmedMohamed/Algorithms-DSs-App",
-    liveDemo: "https://algorirthms-dss-app.netlify.app/",
-    accent: "#06b6d4",
-    icon: SiJavascript,
-    iconType: "javascript",
-    number: "05",
-    featured: true,
-    translations: {
-      ar: {
-        title: "الخوارزميات وهياكل البيانات",
-        eyebrow: "تطبيق تعليمي تفاعلي",
-        detailCategory: "تطبيق JavaScript",
-        description:
-          "تطبيق تعليمي يعرض هياكل البيانات والخوارزميات المرتبطة بها من خلال تجربة تفاعلية تساعد على فهم مفاهيم علوم الحاسوب.",
-        overview:
-          "يركز المشروع على تقديم المفاهيم الأساسية في علوم الحاسوب بطريقة مبسطة، من خلال محتوى منظم وعروض مرئية.",
-        challenge:
-          "تسهيل فهم هياكل البيانات والخوارزميات المجردة من خلال واجهة واضحة وتفاعلية.",
-        solution:
-          "تجربة تعليمية تفاعلية تنظم المفاهيم وتعرض تمثيلات مرئية داخل المتصفح.",
-        features: [
-          "استكشاف هياكل البيانات والخوارزميات",
-          "عرض مرئي للمفاهيم الأساسية",
-          "تنظيم المحتوى التعليمي",
-          "تجربة تفاعلية داخل المتصفح",
-          "واجهة متجاوبة",
         ],
       },
     },

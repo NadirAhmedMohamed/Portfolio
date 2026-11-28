@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 
 import {
@@ -199,8 +199,6 @@ function ProjectDetails() {
   const { slug } = useParams();
   const navigate = useNavigate();
 
-  const originalTitleRef = useRef(document.title);
-
   const [language, setLanguage] = useState(() => {
     if (typeof document === "undefined") return "en";
 
@@ -271,16 +269,21 @@ function ProjectDetails() {
       return;
     }
 
-    const translatedTitle = getText("title") || project.title;
+    const translatedTitle =
+      project.translations?.[language]?.title || project.title;
 
     document.title = `${translatedTitle} | NADIR.DEV`;
-  }, [slug, project, language]);
+  }, [project, language, t.notFound]);
 
-  /* Restore the original document title on unmount */
+  /* =========================================
+     RESTORE ORIGINAL PAGE TITLE
+  ========================================= */
 
   useEffect(() => {
+    const originalTitle = document.title;
+
     return () => {
-      document.title = originalTitleRef.current;
+      document.title = originalTitle;
     };
   }, []);
 
